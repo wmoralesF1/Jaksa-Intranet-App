@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListRoutesActivity">
+    <TextView
+        android:id="@+id/tvtituloListaItinerarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista de Itinerarios de Viaje"
+        android:gravity="center_horizontal"
+        android:textSize="25sp"></TextView>
+    <TextView
+        android:id="@+id/tvnumresultados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"></TextView>
+    <ListView
+        android:id="@+id/lvItinerarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+</LinearLayout>

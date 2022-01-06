@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Intranet Jaksa</string>
+    <string name="url_web_service">http://www.grupovaldez.pe/WSintranet/WSIntranet.asmx</string>
+    <string name="url_web_service_namespace">http://www.grupovaldez.com/</string>
+
+    <!--Mensajes-->
+    <string name="msg_Progress_Login">Comprobando Credenciales</string>
+    <string name="msg_Search_Destinos">Buscando destinos</string>
+    <string name="msg_Search_Routes">Buscando salidas</string>
+    <string name="msg_Error_Credenciales_Login">Usuario y/o password incorrectos</string>
+    <string name="msg_Error_Destinos">No se encontraron destinos del terminal</string>
+    <string name="msg_Error_No_Salidas">No hay salidas disponibles</string>
+    <string name="msg_Error_Block_Acceso">No tiene acceso a este modulo</string>
+
+    <!--Key Metodo WS-->
+    <string name="key_method_ws_login_user">Login_User</string>
+    <string name="key_method_ws_list_terminales">List_Terminales</string>
+    <string name="key_method_ws_search_destino">List_Destinos</string>
+    <string name="key_method_ws_search_salidas">Search_Salidas</string>
+    <string name="key_method_ws_list_asientos_ocupados">List_Asiento_Ocupados</string>
+    <string name="key_method_ws_search_routes_viaje">Search_Routes_Viaje</string>
+
+
+    <string-array name="Terminales">
+        <item>Lima</item>
+        <item>Ica</item>
+        <item>Cañete</item>
+        <item>Chincha</item>
+        <item>Asia</item>
+    </string-array>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PassengerActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/black"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvDescRuta"
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:textColor="#FFEB3B"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/tvFechaHoraReserva"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:textColor="#FFEB3B"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/tvServicio"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:textColor="#FFEB3B"
+            android:layout_height="wrap_content"></TextView>
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/llContenedor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="15dp"
+        android:layout_marginHorizontal="10dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Datos Pasajeros"
+            android:textSize="20sp"
+            />
+
+        <View
+            android:id="@+id/vDividerPasajero"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+        <ListView
+            android:id="@+id/lvPasajeros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+        <Button
+            android:id="@+id/btnReservar"
+            android:text="RESERVAR VENTA"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Button>
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>
