@@ -1,12 +1,18 @@
 package com.example.reservas_pasajes.models;
 
-
 import java.util.ArrayList;
 
 public class ItinerarioModel {
     private int idViaje;
+    private int idOrigen;
+    private String nomOrigen;
+    private String nomEmbarque;
+    private int idDestino;
+    private String nomDestino;
     private int idServicio;
     private String nomServicio;
+    private String fechaReserva;
+    private String fechaReservaFormat;
     private String horaReserva;
     private int asientosBus;
     private int asientosBusPrimerPiso;
@@ -15,16 +21,9 @@ public class ItinerarioModel {
     private ArrayList<AsientoModel> listaAsientosOcupados;
     private ArrayList<RutaModel> listaRutas;
     private RutaModel rutaViaje;
-    public ItinerarioModel(){}
+    private ArrayList<PasajeroModel> listaPasajeros;
 
-    public ItinerarioModel(int idViaje, int idServicio, String nomServicio, String horaReserva,
-                           int asientosLibres, double precioPrimerNivel, double precioSegundoNivel) {
-        this.idViaje = idViaje;
-        this.idServicio = idServicio;
-        this.nomServicio = nomServicio;
-        this.horaReserva = horaReserva;
-        this.asientosLibres = asientosLibres;
-    }
+    public ItinerarioModel(){}
 
     public int getIdViaje() {
         return idViaje;
@@ -32,6 +31,46 @@ public class ItinerarioModel {
 
     public void setIdViaje(int idViaje) {
         this.idViaje = idViaje;
+    }
+
+    public int getIdOrigen() {
+        return idOrigen;
+    }
+
+    public void setIdOrigen(int idOrigen) {
+        this.idOrigen = idOrigen;
+    }
+
+    public String getNomOrigen() {
+        return nomOrigen;
+    }
+
+    public void setNomOrigen(String nomOrigen) {
+        this.nomOrigen = nomOrigen;
+    }
+
+    public String getNomEmbarque() {
+        return nomEmbarque;
+    }
+
+    public void setNomEmbarque(String nomEmbarque) {
+        this.nomEmbarque = nomEmbarque;
+    }
+
+    public int getIdDestino() {
+        return idDestino;
+    }
+
+    public void setIdDestino(int idDestino) {
+        this.idDestino = idDestino;
+    }
+
+    public String getNomDestino() {
+        return nomDestino;
+    }
+
+    public void setNomDestino(String nomDestino) {
+        this.nomDestino = nomDestino;
     }
 
     public int getIdServicio() {
@@ -48,6 +87,22 @@ public class ItinerarioModel {
 
     public void setNomServicio(String nomServicio) {
         this.nomServicio = nomServicio;
+    }
+
+    public String getFechaReserva() {
+        return fechaReserva;
+    }
+
+    public void setFechaReserva(String fechaReserva) {
+        this.fechaReserva = fechaReserva;
+    }
+
+    public String getFechaReservaFormat() {
+        return fechaReservaFormat;
+    }
+
+    public void setFechaReservaFormat(String fechaReservaFormat) {
+        this.fechaReservaFormat = fechaReservaFormat;
     }
 
     public String getHoraReserva() {
@@ -112,5 +167,13 @@ public class ItinerarioModel {
 
     public void setRutaViaje(RutaModel rutaViaje) {
         this.rutaViaje = rutaViaje;
+    }
+
+    public ArrayList<PasajeroModel> getListaPasajeros() {
+        return listaPasajeros;
+    }
+
+    public void setListaPasajeros(ArrayList<PasajeroModel> listaPasajeros) {
+        this.listaPasajeros = listaPasajeros;
     }
 }

@@ -7,6 +7,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginVertical="5dp"
+        android:paddingHorizontal="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -14,56 +15,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:text="08:00am - 06_00PM"
-            android:textSize="15sp"></TextView>
+            android:textSize="20sp"></TextView>
         <TextView
             android:id="@+id/tvDescServicio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="50"
-            android:text="ECONOMICO"
-            android:textSize="15sp"></TextView>
+            android:textSize="20sp"></TextView>
 
     </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_marginVertical="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/tvAsientosLibres"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="20 Asientos Libres"
-            android:textSize="15sp"></TextView>
-        <TextView
-            android:id="@+id/tvPrecioAsiento"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="S/ 20.00"
-            android:textSize="15sp"></TextView>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_marginVertical="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Spinner
-            android:id="@+id/sRuta"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="60"
-            android:layout_marginBottom="10dp"></Spinner>
-        <Button
-            android:id="@+id/btnSeleccionarViaje"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="40"
-            android:text="Seleccionar"
-            android:textSize="10sp"
-            ></Button>
-    </LinearLayout>
-
 </LinearLayout>

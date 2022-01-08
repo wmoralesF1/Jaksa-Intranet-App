@@ -14,10 +14,9 @@ public class SessionManager extends Application {
 
     private static ArrayList<TerminalModel> listaTerminales;
     private static UsuarioModel usuario;
-    private static ArrayList<PasajeroModel> listaPasajeros;
     private static ArrayList<ItinerarioModel> salidaTurnos;
     private static ViajeModel viaje;
-
+    private static ItinerarioModel turnoViaje;
 
 
     public static ArrayList<TerminalModel> getListaTerminales() {
@@ -36,14 +35,6 @@ public class SessionManager extends Application {
         SessionManager.usuario = usuario;
     }
 
-    public static ArrayList<PasajeroModel> getListaPasajeros() {
-        return listaPasajeros;
-    }
-
-    public static void setListaPasajeros(ArrayList<PasajeroModel> listaPasajeros) {
-        SessionManager.listaPasajeros = listaPasajeros;
-    }
-
     public static ArrayList<ItinerarioModel> getSalidaTurnos() {
         return salidaTurnos;
     }
@@ -58,5 +49,13 @@ public class SessionManager extends Application {
 
     public static void setViaje(ViajeModel viaje) {
         SessionManager.viaje = viaje;
+    }
+
+    public static ItinerarioModel getTurnoViaje() {
+        return turnoViaje;
+    }
+
+    public static void setTurnoViaje(ItinerarioModel turnoViaje) {
+        SessionManager.turnoViaje = turnoViaje;
     }
 }

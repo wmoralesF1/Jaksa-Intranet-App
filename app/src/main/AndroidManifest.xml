@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.reservas_pasajes">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".helper.SessionManager"
         android:allowBackup="true"
@@ -11,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Reservas_pasajes"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".SelectRouteActivity"
+            android:exported="false" />
         <activity
             android:name=".SubMenuActivity"
             android:exported="false" />

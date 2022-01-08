@@ -11,7 +11,7 @@ public class PasajeroModel {
     private double precioAsiento;
     private double precioPromocionalAsiento;
     private String generoPasajero;
-
+    public PasajeroModel(){}
     public PasajeroModel(int idReseva, String tipoDocumento, String numDocumento, String numAsiento,
                          String nombrePasajero, String apellidoPaternoPasajero,
                          String apellidoMaternoPasajero, double precioAsiento,

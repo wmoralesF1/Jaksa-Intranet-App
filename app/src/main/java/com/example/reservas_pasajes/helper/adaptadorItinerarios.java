@@ -62,54 +62,13 @@ public class adaptadorItinerarios extends BaseAdapter{
         LinearLayout llRow = (LinearLayout) convertView.findViewById(R.id.llRow);
         TextView tvDescServicio = (TextView) convertView.findViewById(R.id.tvDescServicio);
         TextView tvHoraPartida = (TextView) convertView.findViewById(R.id.tvHoraPartida);
-        TextView tvAsientosLibres = (TextView) convertView.findViewById(R.id.tvAsientosLibres);
-        Spinner sRuta = (Spinner) convertView.findViewById(R.id.sRuta);
-        TextView tvPrecioAsiento = (TextView) convertView.findViewById(R.id.tvPrecioAsiento);
-        Button btnSeleccionarViaje = (Button) convertView.findViewById(R.id.btnSeleccionarViaje);
+        //TextView tvAsientosLibres = (TextView) convertView.findViewById(R.id.tvAsientosLibres);
 
         // LLENAMOS LOS ELEMENTOS CON LOS VALORES DE CADA ITEM
         tvDescServicio.setText("Servicio: " + entidad.getNomServicio());
         tvHoraPartida.setText("Hora Partida: " + entidad.getHoraReserva());
-        tvAsientosLibres.setText(entidad.getAsientosLibres() + " Asientos Libres");
-        ArrayAdapter<RutaModel> rutasAdapter=new ArrayAdapter<RutaModel>(parent.getContext(),
-                android.R.layout.simple_spinner_dropdown_item, entidad.getListaRutas());
-        sRuta.setAdapter(rutasAdapter);
-        sRuta.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int index, long id) {
-                RutaModel oRuta= (RutaModel) entidad.getListaRutas().get(index);
-                tvPrecioAsiento.setText("Precio Asiento: S/"+ String.valueOf(oRuta.getRutaPrecio()));
-                entidad.setRutaViaje(oRuta);
-                if(oRuta.getRutaPrecio()<1){
-                    btnSeleccionarViaje.setEnabled(false);
-                }
-            }
+        //tvAsientosLibres.setText(entidad.getAsientosLibres() + " Asientos Libres");
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        btnSeleccionarViaje.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                ViajeModel viaje=SessionManager.getViaje();
-                viaje.setItinerarioViaje(entidad);
-                viaje.setRutaViaje(entidad.getRutaViaje());
-                viaje.setPrecioAsiento(entidad.getRutaViaje().getRutaPrecio());
-                SessionManager.setViaje(viaje);
-                Log.i("Hola", "Precio " + SessionManager.getViaje().getPrecioAsiento());
-                if(SessionManager.getViaje().getPrecioAsiento()>0){
-                    Intent i;
-                    i = new Intent(parent.getContext(), MapBusActivity.class);
-                    parent.getContext().startActivity(i);
-                }else{
-                    Toast.makeText(parent.getContext(), "Hay que configurar las rutas del viaje.", Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
         if((position%2)==0){
             GradientDrawable gradiColor=new GradientDrawable();
             gradiColor.setColor(Color.parseColor("#EECD00"));

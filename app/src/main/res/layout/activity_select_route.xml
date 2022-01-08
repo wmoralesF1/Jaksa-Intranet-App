@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapBusActivity">
+    tools:context=".SelectRouteActivity">
     <LinearLayout
         android:orientation="vertical"
         android:background="@color/black"
@@ -13,37 +13,67 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/tvDescRutaMapBus"
+            android:id="@+id/tvDescRutaSelectRoute"
             android:gravity="left"
             android:layout_width="match_parent"
             android:textColor="#FFEB3B"
             android:textSize="20sp"
             android:layout_height="wrap_content"></TextView>
         <TextView
-            android:id="@+id/tvFechaHoraReservaMapBus"
+            android:id="@+id/tvFechaHoraReservaSelectRoute"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:textColor="#FFEB3B"
             android:textSize="15sp"
             android:layout_height="wrap_content"></TextView>
         <TextView
-            android:id="@+id/tvServicioMapBus"
+            android:id="@+id/tvServicioSelectRoute"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:textColor="#FFEB3B"
             android:textSize="15sp"
             android:layout_height="wrap_content"></TextView>
         <TextView
-            android:id="@+id/tvPrecioMapBus"
+            android:id="@+id/tvPrecioSelectRoute"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:textColor="#FFEB3B"
+            android:text="S/ 0.0"
             android:textSize="20sp"
             android:layout_height="wrap_content"></TextView>
 
 
     </LinearLayout>
 
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ruta Viaje:"
+            android:textSize="20sp"></TextView>
+        <Spinner
+            android:id="@+id/sRutaSelectRoute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Asientos Libres:"
+            android:textSize="20sp"></TextView>
+        <TextView
+            android:id="@+id/tvAsientosLibresSelectRoute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"></TextView>
+
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,28 +85,15 @@
             android:layout_height="wrap_content"
             android:text="Atras"
             android:layout_marginRight="10dp"
-            android:id="@+id/btnAtrasMapBus"></Button>
+            android:id="@+id/btnAtrasSelectRoute"></Button>
         <Button
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="Continuar"
             android:layout_marginLeft="10dp"
-            android:enabled="false"
-            android:id="@+id/btnContinuarMapBus"></Button>
+            android:id="@+id/btnContinuarSelectRoute"></Button>
 
     </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/llplanobus"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </LinearLayout>
-    </ScrollView>
 
 
 </LinearLayout>

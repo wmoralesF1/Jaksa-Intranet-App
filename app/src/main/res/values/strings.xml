@@ -11,6 +11,7 @@
     <string name="msg_Error_Destinos">No se encontraron destinos del terminal</string>
     <string name="msg_Error_No_Salidas">No hay salidas disponibles</string>
     <string name="msg_Error_Block_Acceso">No tiene acceso a este modulo</string>
+    <string name="msg_Error_Price_Zero">No hay tarifa configurad en la tafifa seleccionada.</string>
 
     <!--Key Metodo WS-->
     <string name="key_method_ws_login_user">Login_User</string>

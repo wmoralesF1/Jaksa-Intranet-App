@@ -220,11 +220,11 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
                     }
 
                 }
-                //Obtener Asientos Ocupados
-                IndexAsientosOcupados=0;
-                for (ItinerarioModel item:salidaTurnos){
-                    BuscarAsientosOcupados(String.valueOf(item.getIdViaje()));
-                }
+                SessionManager.setSalidaTurnos(salidaTurnos);
+                Intent i;
+                i = new Intent(this.getApplicationContext(), ListRoutesActivity.class);
+                startActivity(i);
+
             }
             else
             {
@@ -268,106 +268,12 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    private void wsListarAsientosOcupados(String respuesta,String NroViaje){
-        if(!respuesta.isEmpty()) {
-            String[] Cadena = respuesta.split(";");
-            ArrayList<AsientoModel> listaAsientosOcupados=new ArrayList();
-            for (String item: Cadena) {
-                boolean exiteAsiento=false;
-                if(!item.isEmpty()){
-                    for(int i=0;i<=listaAsientosOcupados.size()-1;i++){
-                        if(listaAsientosOcupados.get(i).getNroAsiento()==Integer.parseInt(item)){
-                            exiteAsiento=true;
-                            break;
-                        }
-                    }
-                    if(!exiteAsiento){
-                        listaAsientosOcupados.add(new AsientoModel(Integer.parseInt(item)));
-                    }
-                }
-            }
-
-            for(int i=0;i<=salidaTurnos.size()-1;i++){
-                if(salidaTurnos.get(i).getIdViaje()==Integer.parseInt(NroViaje)){
-                    salidaTurnos.get(i).setListaAsientosOcupados(listaAsientosOcupados);
-                    salidaTurnos.get(i).setAsientosLibres(salidaTurnos.get(i).getAsientosBus()-salidaTurnos.get(i).getListaAsientosOcupados().size());
-                    break;
-                }
-            }
-
-            if(salidaTurnos.size()<1){
-                Toast.makeText(getBaseContext(), R.string.msg_Error_No_Salidas, Toast.LENGTH_LONG).show();
-            }else{
-                if(IndexAsientosOcupados==salidaTurnos.size()){
-                    IndexAsientosOcupados=0;
-                    //Obtener Rutas de los Viajes
-                    for (ItinerarioModel item:salidaTurnos){
-                        BuscarRutas(String.valueOf(item.getIdViaje()),SessionManager.getViaje().getNomDestino());
-                    }
-                }
-            }
-        }
-    }
-
-    private void wsBuscarRutasViaje(String respuesta,String NroViaje){
-        ArrayList<RutaModel> listaRutasViaje=new ArrayList<>();
-        ArrayList<RutaModel> listaRutasViajeEmpty=new ArrayList<>();
-        RutaModel oRutaModelEmpty = new RutaModel(0,"Sin Precio" , 0);
-        listaRutasViajeEmpty.add(oRutaModelEmpty);
-        if(!respuesta.isEmpty()) {
-            String[] Cadena = respuesta.split("#");
-            if(Cadena.length>0){
-                String[] Ruta_id = Cadena[0].split(";");
-                String[] Ruta_Descripcion = Cadena[1].split(";");
-                String[] Ruta_Precio = Cadena[2].split(";");
-                for (int i = 0; i < Ruta_id.length; i++) {
-                    if(!(Ruta_id[i] ==null) && !(Ruta_Descripcion[i] ==null) && !(Ruta_Precio[i]==null)){
-                        RutaModel oRutaModel=new RutaModel();
-                        oRutaModel.setRutaId(Integer.parseInt(Ruta_id[i]));
-                        oRutaModel.setRutaDescripcion(Ruta_Descripcion[i].toUpperCase());
-                        oRutaModel.setRutaPrecio(Double.parseDouble(Ruta_Precio[i]));
-                        listaRutasViaje.add(oRutaModel);
-                    }else{
-                        listaRutasViaje.add(oRutaModelEmpty);
-                        break;
-                    }
-                }
-
-            }else{
-                listaRutasViaje.add(oRutaModelEmpty);
-            }
-        }
-        for(int i=0;i<=salidaTurnos.size()-1;i++){
-            if(salidaTurnos.get(i).getIdViaje()==Integer.parseInt(NroViaje)){
-                salidaTurnos.get(i).setListaRutas(listaRutasViaje);
-                break;
-            }
-        }
-        if(IndexAsientosOcupados==salidaTurnos.size()){
-            for(int i=0;i<=salidaTurnos.size()-1;i++){
-                if(salidaTurnos.get(i).getListaRutas()==null){
-                    salidaTurnos.get(i).setListaRutas(listaRutasViajeEmpty);
-                    break;
-                }
-            }
-            SessionManager.setSalidaTurnos(salidaTurnos);
-            Intent i;
-            i = new Intent(this.getApplicationContext(), ListRoutesActivity.class);
-            startActivity(i);
-        }
-    }
-
-    private void RespuestaWS(String Respuesta,String NroViaje,String KeyMetodo){
+    private void RespuestaWS(String Respuesta,String KeyMetodo){
         if(KeyMetodo==getString(R.string.key_method_ws_search_destino)){
             wsBuscarDestinos(Respuesta);
         }else if(KeyMetodo==getString(R.string.key_method_ws_search_salidas)){
             wsBuscarTurnos(Respuesta);
-        }else if(KeyMetodo==getString(R.string.key_method_ws_list_asientos_ocupados)){
-            wsListarAsientosOcupados(Respuesta,NroViaje);
-        }else if(KeyMetodo==getString(R.string.key_method_ws_search_routes_viaje)){
-            wsBuscarRutasViaje(Respuesta,NroViaje);
         }
-
     }
 
     public class TaskCallWS extends AsyncTask<Void, Integer, String> {
@@ -385,13 +291,10 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
             super.onPreExecute();
             if(KeyMetodo==getString(R.string.key_method_ws_search_destino)){
                 pDialog.setMessage(getString(R.string.msg_Search_Destinos));
-                pDialog.show();
-            }else if(KeyMetodo==getString(R.string.key_method_ws_search_salidas) ||
-                    KeyMetodo==getString(R.string.key_method_ws_list_asientos_ocupados) ||
-                    KeyMetodo==getString(R.string.key_method_ws_search_routes_viaje)){
+            }else if(KeyMetodo==getString(R.string.key_method_ws_search_salidas)){
                 pDialog.setMessage(getString(R.string.msg_Search_Routes));
-                pDialog.show();
             }
+            pDialog.show();
         }
 
         @Override
@@ -402,28 +305,14 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
 
         @Override
         protected void onPostExecute(String result) {
-            if(result.isEmpty() && KeyMetodo==getString(R.string.key_method_ws_list_asientos_ocupados)){
-                result=";";
-            }
             if (result.equals(""))
             {
-                if(KeyMetodo!=getString(R.string.key_method_ws_list_asientos_ocupados) &&
-                        KeyMetodo!=getString(R.string.key_method_ws_search_routes_viaje)){
-                    Toast.makeText(getBaseContext(), "No se pudo conectar.", Toast.LENGTH_LONG).show();
-                }
+                Toast.makeText(getBaseContext(), "No se pudo conectar.", Toast.LENGTH_LONG).show();
             }
             else{
-                if(KeyMetodo==getString(R.string.key_method_ws_list_asientos_ocupados) ||
-                        KeyMetodo==getString(R.string.key_method_ws_search_routes_viaje)){
-                    RespuestaWS(result,String.valueOf(NroViaje), KeyMetodo);
-                }else{
-                    RespuestaWS(result,"",KeyMetodo);
-                    if(KeyMetodo==getString(R.string.key_method_ws_search_destino)){
-                        pDialog.dismiss();
-                    }
-
-                }
+                RespuestaWS(result, KeyMetodo);
             }
+            pDialog.dismiss();
         }
 
         public void Parametros(String Metodo,String KeyMetodo,String Namespace, String URL, String ParametroNombres, String ParametroValores)

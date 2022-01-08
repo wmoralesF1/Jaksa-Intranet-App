@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SessionManager.setViaje(null);
         SessionManager.setUsuario(null);
-        SessionManager.setListaPasajeros(null);
         SessionManager.setListaTerminales(null);
         Intent i;
         i = new Intent(this, LoginActivity.class);
