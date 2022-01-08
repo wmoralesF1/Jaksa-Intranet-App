@@ -11,38 +11,76 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.reservas_pasajes.helper.SessionManager;
 import com.example.reservas_pasajes.helper.adaptadorItinerarios;
 import com.example.reservas_pasajes.helper.adaptadorPasajero;
 import com.example.reservas_pasajes.models.ItinerarioModel;
 import com.example.reservas_pasajes.models.PasajeroModel;
+import com.example.reservas_pasajes.models.TipoDocumentoModel;
 
 import java.util.ArrayList;
 
 public class PassengerActivity extends AppCompatActivity implements View.OnClickListener {
 
     LinearLayout llContenedor;
-    private ListView lvPasajeros;
+
     private adaptadorPasajero adaptador;
     ArrayList<PasajeroModel> listaPasajeros = new ArrayList<>();
-    Button btnReservar;
+
+
+
+
+    TextView tvDescRutaPassenger;
+    TextView tvFechaHoraReservaPassenger;
+    TextView tvServicioPassenger;
+    TextView tvPrecioPassenger;
+    private ListView lvPasajerosPassenger;
+    Button btnReservarPassenger;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger);
+        btnReservarPassenger=(Button)findViewById(R.id.btnReservarPassenger);
+        lvPasajerosPassenger=(ListView)findViewById(R.id.lvPasajerosPassenger);
+        DetalleReserva();
+        ListarTipoDocumento();
         listaPasajeros=new ArrayList<>();
-        lvPasajeros=(ListView)findViewById(R.id.lvPasajeros);
-        btnReservar=(Button)findViewById(R.id.btnReservar);
-        CargarPasajeros();
-        adaptador=new adaptadorPasajero(this,listaPasajeros);
-        lvPasajeros.setAdapter(adaptador);
+
+
+        //CargarPasajeros();
+        adaptador=new adaptadorPasajero(this,SessionManager.getTurnoViaje().getListaPasajeros());
+        lvPasajerosPassenger.setAdapter(adaptador);
         llContenedor=findViewById(R.id.llContenedor);
         GradientDrawable border = new GradientDrawable();
         //border.setColor(0xFFFFFFFF);
         border.setStroke(2, Color.parseColor("#000000"));
         llContenedor.setBackground(border);
 
-        btnReservar.setOnClickListener(this);
+        btnReservarPassenger.setOnClickListener(this);
+    }
+
+    private void DetalleReserva(){
+        tvDescRutaPassenger=findViewById(R.id.tvDescRutaPassenger);
+        tvFechaHoraReservaPassenger=findViewById(R.id.tvFechaHoraReservaPassenger);
+        tvServicioPassenger=findViewById(R.id.tvServicioPassenger);
+        tvPrecioPassenger=findViewById(R.id.tvPrecioPassenger);
+
+        tvDescRutaPassenger.setText(SessionManager.getTurnoViaje().getRutaViaje().getRutaDescripcion());
+        tvFechaHoraReservaPassenger.setText(SessionManager.getTurnoViaje().getFechaReserva() + " - " + SessionManager.getTurnoViaje().getHoraReserva());
+        tvServicioPassenger.setText(SessionManager.getTurnoViaje().getNomServicio());
+        tvPrecioPassenger.setText("S/ " + String.valueOf(SessionManager.getTurnoViaje().getRutaViaje().getRutaPrecio()));
+    }
+
+    private void ListarTipoDocumento(){
+        ArrayList<TipoDocumentoModel> listaTipoDocumentos=new ArrayList<>();
+        listaTipoDocumentos.add(new TipoDocumentoModel(1,"D.N.I."));
+        listaTipoDocumentos.add(new TipoDocumentoModel(4,"CARNET EXTRANJERIA"));
+        listaTipoDocumentos.add(new TipoDocumentoModel(7,"PASAPORTE"));
+        SessionManager.setListaTiposDocumentos(null);
+        SessionManager.setListaTiposDocumentos(listaTipoDocumentos);
+
     }
 
     private void CargarPasajeros(){

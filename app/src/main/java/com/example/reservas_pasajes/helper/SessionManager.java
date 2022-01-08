@@ -5,6 +5,7 @@ import android.app.Application;
 import com.example.reservas_pasajes.models.ItinerarioModel;
 import com.example.reservas_pasajes.models.PasajeroModel;
 import com.example.reservas_pasajes.models.TerminalModel;
+import com.example.reservas_pasajes.models.TipoDocumentoModel;
 import com.example.reservas_pasajes.models.UsuarioModel;
 import com.example.reservas_pasajes.models.ViajeModel;
 
@@ -18,6 +19,8 @@ public class SessionManager extends Application {
     private static ViajeModel viaje;
     private static ItinerarioModel turnoViaje;
 
+
+    private static ArrayList<TipoDocumentoModel> listaTiposDocumentos;
 
     public static ArrayList<TerminalModel> getListaTerminales() {
         return listaTerminales;
@@ -57,5 +60,13 @@ public class SessionManager extends Application {
 
     public static void setTurnoViaje(ItinerarioModel turnoViaje) {
         SessionManager.turnoViaje = turnoViaje;
+    }
+
+    public static ArrayList<TipoDocumentoModel> getListaTiposDocumentos() {
+        return listaTiposDocumentos;
+    }
+
+    public static void setListaTiposDocumentos(ArrayList<TipoDocumentoModel> listaTiposDocumentos) {
+        SessionManager.listaTiposDocumentos = listaTiposDocumentos;
     }
 }

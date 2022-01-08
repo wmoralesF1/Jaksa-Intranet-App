@@ -12,12 +12,13 @@
         <Spinner
             android:id="@+id/spTipoDocumentoPasajero"
             android:layout_width="0dp"
-            android:layout_weight="90"
+            android:layout_weight="80"
             android:layout_height="wrap_content"></Spinner>
         <Button
+            android:id="@+id/btnAsientoPassenger"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
+            android:layout_weight="20"
             android:layout_marginLeft="5dp"
             ></Button>
     </LinearLayout>

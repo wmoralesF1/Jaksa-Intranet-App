@@ -13,28 +13,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/tvDescRuta"
+            android:id="@+id/tvDescRutaPassenger"
             android:gravity="left"
             android:layout_width="match_parent"
             android:textColor="#FFEB3B"
+            android:textSize="20sp"
             android:layout_height="wrap_content"></TextView>
         <TextView
-            android:id="@+id/tvFechaHoraReserva"
+            android:id="@+id/tvFechaHoraReservaPassenger"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:textColor="#FFEB3B"
+            android:textSize="15sp"
             android:layout_height="wrap_content"></TextView>
         <TextView
-            android:id="@+id/tvServicio"
+            android:id="@+id/tvServicioPassenger"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:textColor="#FFEB3B"
+            android:textSize="15sp"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/tvPrecioPassenger"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:textColor="#FFEB3B"
+            android:textSize="20sp"
             android:layout_height="wrap_content"></TextView>
 
+
     </LinearLayout>
-    <ScrollView
+    <!--<ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+</ScrollView>-->
     <LinearLayout
         android:id="@+id/llContenedor"
         android:layout_width="match_parent"
@@ -56,17 +69,16 @@
             android:layout_height="1dp"
             android:background="?android:attr/listDivider" />
         <ListView
-            android:id="@+id/lvPasajeros"
+            android:id="@+id/lvPasajerosPassenger"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></ListView>
         <Button
-            android:id="@+id/btnReservar"
+            android:id="@+id/btnReservarPassenger"
             android:text="RESERVAR VENTA"
             android:textSize="20sp"
             android:layout_marginHorizontal="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></Button>
     </LinearLayout>
-</ScrollView>
 
 </LinearLayout>
