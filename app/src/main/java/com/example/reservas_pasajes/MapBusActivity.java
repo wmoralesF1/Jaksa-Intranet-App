@@ -343,13 +343,19 @@ public class MapBusActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private boolean BloquearAsiento(MapBusModel itemMapBusModel){
-        PasajeroModel oPasajeroModel=new PasajeroModel();
-        oPasajeroModel.setNumAsiento(itemMapBusModel.getNumAsiento());
-        oPasajeroModel.setPrecioAsiento(itemMapBusModel.getPrecio());
         ArrayList<PasajeroModel> listaPasajero= SessionManager.getTurnoViaje().getListaPasajeros();
         if(listaPasajero==null){
             listaPasajero=new ArrayList<>();
         }
+
+        if(listaPasajero.size()>=1){
+            Toast.makeText(getBaseContext(), "Solo se puede reservar un asiento.", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        PasajeroModel oPasajeroModel=new PasajeroModel();
+        oPasajeroModel.setNumAsiento(itemMapBusModel.getNumAsiento());
+        oPasajeroModel.setPrecioAsiento(itemMapBusModel.getPrecio());
+
         listaPasajero.add(oPasajeroModel);
         SessionManager.getTurnoViaje().setListaPasajeros(null);
         SessionManager.getTurnoViaje().setListaPasajeros(listaPasajero);

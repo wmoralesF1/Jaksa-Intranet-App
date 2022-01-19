@@ -55,7 +55,7 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
         llContenedor=findViewById(R.id.llContenedor);
         GradientDrawable border = new GradientDrawable();
         //border.setColor(0xFFFFFFFF);
-        border.setStroke(2, Color.parseColor("#000000"));
+        //border.setStroke(2, Color.parseColor("#000000"));
         llContenedor.setBackground(border);
 
         btnReservarPassenger.setOnClickListener(this);

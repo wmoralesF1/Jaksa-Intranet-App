@@ -45,9 +45,9 @@
     </LinearLayout>
     <!--<ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">-->
 
-</ScrollView>-->
+
     <LinearLayout
         android:id="@+id/llContenedor"
         android:layout_width="match_parent"
@@ -63,15 +63,15 @@
             android:textSize="20sp"
             />
 
-        <View
+       <!-- <View
             android:id="@+id/vDividerPasajero"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="?android:attr/listDivider" />
+            android:background="?android:attr/listDivider" />-->
         <ListView
             android:id="@+id/lvPasajerosPassenger"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></ListView>
         <Button
             android:id="@+id/btnReservarPassenger"
             android:text="RESERVAR VENTA"
@@ -80,5 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></Button>
     </LinearLayout>
+
+<!--</ScrollView>-->
 
 </LinearLayout>

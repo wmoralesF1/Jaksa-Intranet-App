@@ -207,8 +207,9 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
                 String[] AsientoBus = Cadena[3].split(";");
                 String[] AsientoBusPrimerPiso = Cadena[3].split(";");
 
-                for (int i = 0; i < Viaje_id.length; i++) {
-                    if(!(Viaje_id[i] ==null) && !(Servicio[i] ==null) && !(AsientoBus[i]==null)){
+                for (int i = 0; i < Viaje_id.length-1; i++) {
+                    if((!Viaje_id[i].isEmpty() && !(Viaje_id[i] ==null)) && (!Servicio[i].isEmpty() && !(Servicio[i] ==null)) && (!AsientoBus[i].isEmpty() && !(AsientoBus[i]==null)))
+                        {
                         ItinerarioModel oItinerarioModel=new ItinerarioModel();
                         oItinerarioModel.setIdViaje(Integer.parseInt(Viaje_id[i]));
                         oItinerarioModel.setNomServicio(Servicio[i].toUpperCase());
