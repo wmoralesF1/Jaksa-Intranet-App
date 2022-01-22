@@ -60,6 +60,7 @@ public class MapBusActivity extends AppCompatActivity implements View.OnClickLis
         Drawable drwNext = new BitmapDrawable(getResources(), Bitmap.createScaledBitmap(bitmapNext, 30, 30, true));
         btnPreviousMapBus.setCompoundDrawablesWithIntrinsicBounds(drwPrevious, null, null, null);
         btnNextMapBus.setCompoundDrawablesWithIntrinsicBounds(null, null, drwNext, null);
+        SessionManager.getTurnoViaje().setListaPasajeros(null);
         GenerarPlaniBus();
     }
 

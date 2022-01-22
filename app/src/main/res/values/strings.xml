@@ -7,11 +7,22 @@
     <string name="msg_Progress_Login">Comprobando Credenciales</string>
     <string name="msg_Search_Destinos">Buscando destinos</string>
     <string name="msg_Search_Routes">Buscando salidas</string>
+    <string name="msg_New_Passenger">Grabar nuevo pasajero.</string>
+    <string name="msg_New_Passenger_Success">Se grabo el pasajero exitosamente.</string>
     <string name="msg_Error_Credenciales_Login">Usuario y/o password incorrectos</string>
     <string name="msg_Error_Destinos">No se encontraron destinos del terminal</string>
     <string name="msg_Error_No_Salidas">No hay salidas disponibles</string>
     <string name="msg_Error_Block_Acceso">No tiene acceso a este modulo</string>
     <string name="msg_Error_Price_Zero">No hay tarifa configurad en la tafifa seleccionada.</string>
+    <string name="msg_Error_Save_Passenger">No se pudo registrar el pasajero.</string>
+    <string name="msg_Error_Doc_Passenger">Documento de pasajero invalido.</string>
+    <string name="msg_Error_Conexion">Error de conexion.Reintente.</string>
+    <string name="msg_Incomplet_Numero_Documento_Passenger">Ingresar numero de documento del pasajero.</string>
+    <string name="msg_Incomplet_Nombres_Passenger">Ingresar nombres del pasajero.</string>
+    <string name="msg_Incomplet_ApellidoPaterno_Passenger">Ingresar apellido paterno del pasajero.</string>
+    <string name="msg_Incomplet_ApellidoMaterno_Passenger">Ingresar apellido materno del pasajero.</string>
+
+
 
     <!--Key Metodo WS-->
     <string name="key_method_ws_login_user">Login_User</string>
@@ -20,6 +31,9 @@
     <string name="key_method_ws_search_salidas">Search_Salidas</string>
     <string name="key_method_ws_list_asientos_ocupados">List_Asiento_Ocupados</string>
     <string name="key_method_ws_search_routes_viaje">Search_Routes_Viaje</string>
+    <string name="key_method_ws_search_passenger">Search_Passenge</string>
+    <string name="key_method_ws_save_passenger">Save_Passenge</string>
+    <string name="key_method_ws_save_reserva">Save_Reserva</string>
 
 
     <string-array name="Terminales">

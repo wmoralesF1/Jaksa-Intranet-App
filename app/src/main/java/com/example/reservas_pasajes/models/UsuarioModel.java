@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class UsuarioModel {
     private int idUsuario;
     private String nomUsuario;
+    private String passUsuario;
+
     private int idTerminal;
     private String nomTerminal;
     private ArrayList<MenuModel> listaMenu;
@@ -27,6 +29,14 @@ public class UsuarioModel {
 
     public void setNomUsuario(String nomUsuario) {
         this.nomUsuario = nomUsuario;
+    }
+
+    public String getPassUsuario() {
+        return passUsuario;
+    }
+
+    public void setPassUsuario(String passUsuario) {
+        this.passUsuario = passUsuario;
     }
 
     public int getIdTerminal() {

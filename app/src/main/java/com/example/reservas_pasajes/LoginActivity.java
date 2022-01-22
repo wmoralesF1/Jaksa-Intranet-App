@@ -64,6 +64,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if(estado.equals("True")){
                     UsuarioModel oUsuarioModel=new UsuarioModel();
                     oUsuarioModel.setListaMenu(listaMenus(menuItems));
+                    oUsuarioModel.setNomUsuario(etUsuario.getText().toString());
+                    oUsuarioModel.setPassUsuario(etPassword.getText().toString());
                     SessionManager.setUsuario(oUsuarioModel);
                     listarTerminales();
                 }

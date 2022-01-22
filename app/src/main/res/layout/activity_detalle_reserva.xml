@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".DetalleReservaActivity">
     <LinearLayout
         android:orientation="vertical"
@@ -12,6 +13,12 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="15dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/logo"></ImageView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,6 +29,7 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginVertical="10dp"
             android:background="?android:attr/listDivider" />
 
         <TextView
@@ -31,23 +39,74 @@
             android:textSize="20sp"
             android:text="Lima - Cañete"></TextView>
         <TextView
-            android:id="@+id/tvDescServicioDetalleServicio"
+            android:id="@+id/tvDescServicioDetalleReserva"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="PRIMIUM VIP"></TextView>
         <TextView
-            android:id="@+id/tvFechaReservaDetalleReserva"
+            android:id="@+id/tvFechaHoraReservaDetalleReserva"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:text="14 Oct. del 2021"></TextView>
-        <TextView
-            android:id="@+id/tvTiempoViajeDetalleReserva"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="08:00 a.m. a 04:00 p.m."></TextView>
+
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:text="Pasajero : "
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:id="@+id/tvNomPasajeroDetalleReserva"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="70"
+            android:textSize="15sp"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:text="N° Documento : "
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:id="@+id/tvNumDocumentoDetalleReserva"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:text="N° Asiento : "
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:id="@+id/tvNumAsientoDetalleReserva"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:textSize="15sp"></TextView>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnNuevaReservaDetalleReserva"
+        android:text="NUEVA RESERVA"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"></Button>
+
+
 </LinearLayout>

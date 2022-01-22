@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_detalle_reserva.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_list_routes.xml" value="0.20416666666666666" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_passenger.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_select_route.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_itinerarios.xml" value="0.19444444444444445" />
