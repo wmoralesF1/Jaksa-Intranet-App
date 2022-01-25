@@ -40,6 +40,7 @@ import java.util.ArrayList;
 
 public class PassengerActivity extends AppCompatActivity implements View.OnClickListener {
     String TAG;
+    Boolean NuevoPasajero=false;
     String TipoDocumento;
     TextView tvDescRutaPassenger;
     TextView tvFechaHoraReservaPassenger;
@@ -47,13 +48,9 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
     TextView tvPrecioPassenger;
     Spinner spTipoDocumentoPassenger;
     EditText etNroDocumentoPassenger;
-    EditText etNombresPassenger;
-    EditText etApellidoPaternoPassenger;
-    EditText etApellidoMaternoPassenger;
-    //EditText etPrecioPromocionalPassenger;
+    EditText etApellidosNombresPassenger;
     Button btnNuevoPassenger;
     Button btnBuscarPassenger;
-    Button btnGuardarPasajeroPassenger;
     Button btnReservarPassenger;
 
     @Override
@@ -64,27 +61,16 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
 
         spTipoDocumentoPassenger = (Spinner)findViewById(R.id.spTipoDocumentoPassenger);
         etNroDocumentoPassenger = (EditText)findViewById(R.id.etNroDocumentoPassenger);
-        etNombresPassenger = (EditText) findViewById(R.id.etNombresPassenger);
-        etApellidoPaternoPassenger = (EditText) findViewById(R.id.etApellidoPaternoPassenger);
-        etApellidoMaternoPassenger = (EditText) findViewById(R.id.etApellidoMaternoPassenger);
-        //etPrecioPromocionalPassenger = (EditText) findViewById(R.id.etPrecioPromocionalPassenger);
+        etApellidosNombresPassenger = (EditText) findViewById(R.id.etApellidosNombresPassenger);
         btnNuevoPassenger=(Button)findViewById(R.id.btnNuevoPassenger);
         btnBuscarPassenger=(Button)findViewById(R.id.btnBuscarPassenger);
-        btnGuardarPasajeroPassenger=(Button)findViewById(R.id.btnGuardarPasajeroPassenger);
         btnReservarPassenger=(Button)findViewById(R.id.btnReservarPassenger);
-
-
         DetalleReserva();
         ListarTipoDocumento();
-
-
         //LLENAR DATOS
         ArrayAdapter<TipoDocumentoModel> listaTiposDocumentosAdapter=new ArrayAdapter<TipoDocumentoModel>(PassengerActivity.this,
                 android.R.layout.simple_spinner_dropdown_item, SessionManager.getListaTiposDocumentos());
         spTipoDocumentoPassenger.setAdapter(listaTiposDocumentosAdapter);
-        //etPrecioPromocionalPassenger.setText(String.valueOf(SessionManager.getTurnoViaje().getRutaViaje().getRutaPrecio()));
-
-
 
         //Agregar Eventos a Controles
         spTipoDocumentoPassenger.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -110,7 +96,6 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
         });
         btnNuevoPassenger.setOnClickListener(this);
         btnBuscarPassenger.setOnClickListener(this);
-        btnGuardarPasajeroPassenger.setOnClickListener(this);
         btnReservarPassenger.setOnClickListener(this);
 
         etNroDocumentoPassenger.addTextChangedListener(new TextWatcher() {
@@ -164,20 +149,11 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
 
     }
 
-    private boolean ValidateGrabarPasajero(String Nombres,String ApellidoPaterno,String ApellidoMaterno){
-        if(Nombres==null || Nombres.trim().isEmpty()){
-            Toast.makeText(getBaseContext(), R.string.msg_Incomplet_Nombres_Passenger, Toast.LENGTH_LONG).show();
+    private boolean ValidateGrabarPasajero(String ApellidosNombres){
+        if(ApellidosNombres==null || ApellidosNombres.trim().isEmpty()){
+            Toast.makeText(getBaseContext(), R.string.msg_Incomplet_ApellidosNombres_Passenger, Toast.LENGTH_LONG).show();
             return false;
         }
-        if(ApellidoPaterno==null || ApellidoPaterno.trim().isEmpty()){
-            Toast.makeText(getBaseContext(), R.string.msg_Incomplet_ApellidoPaterno_Passenger, Toast.LENGTH_LONG).show();
-            return false;
-        }
-        if(TipoDocumento.toUpperCase().equals("DNI") && (ApellidoMaterno==null || ApellidoMaterno.trim().isEmpty())){
-            Toast.makeText(getBaseContext(), R.string.msg_Incomplet_ApellidoMaterno_Passenger, Toast.LENGTH_LONG).show();
-            return false;
-        }
-
         return true;
     }
 
@@ -201,25 +177,24 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
                 BuscarPasajero(TipoDocumento,NumeroDocumento);
             }
 
-        }else if(v.getId()==btnGuardarPasajeroPassenger.getId()){
-            String Nombres=etNombresPassenger.getText().toString();
-            String ApellidoPaterno=etApellidoPaternoPassenger.getText().toString();
-            String ApellidoMaterno=etApellidoMaternoPassenger.getText().toString();
-
-            if(ValidateGrabarPasajero(Nombres,ApellidoPaterno,ApellidoMaterno)==true){
-                String NombresApellidos=ApellidoPaterno+ "|"+ "|" + ApellidoMaterno + "|"+ "|" + Nombres;
-                GuardarPasajero(etNroDocumentoPassenger.getText().toString(),NombresApellidos);
-            }
         }else if(v.getId()==btnReservarPassenger.getId()){
-            btnBuscarPassenger.setEnabled(false);
-            reservarVenta(SessionManager.getUsuario().getNomUsuario(),
-                    SessionManager.getUsuario().getPassUsuario(),
-                    SessionManager.getTurnoViaje().getNomOrigen(),
-                    String.valueOf(SessionManager.getTurnoViaje().getIdViaje()),
-                    String.valueOf(SessionManager.getTurnoViaje().getRutaViaje().getRutaId()),
-                    SessionManager.getTurnoViaje().getListaPasajeros().get(0).getNumDocumento(),
-                    String.valueOf(SessionManager.getTurnoViaje().getListaPasajeros().get(0).getPrecioAsiento()),
-                    SessionManager.getTurnoViaje().getListaPasajeros().get(0).getNumAsiento());
+            btnReservarPassenger.setEnabled(false);
+            if(NuevoPasajero){
+                if(ValidateGrabarPasajero(etApellidosNombresPassenger.getText().toString())){
+                    GuardarPasajero(etNroDocumentoPassenger.getText().toString(),
+                            etApellidosNombresPassenger.getText().toString());
+                }
+
+            }else{
+                reservarVenta(SessionManager.getUsuario().getNomUsuario(),
+                        SessionManager.getUsuario().getPassUsuario(),
+                        SessionManager.getTurnoViaje().getNomOrigen(),
+                        String.valueOf(SessionManager.getTurnoViaje().getIdViaje()),
+                        String.valueOf(SessionManager.getTurnoViaje().getRutaViaje().getRutaId()),
+                        SessionManager.getTurnoViaje().getListaPasajeros().get(0).getNumDocumento(),
+                        String.valueOf(SessionManager.getTurnoViaje().getListaPasajeros().get(0).getPrecioAsiento()),
+                        SessionManager.getTurnoViaje().getListaPasajeros().get(0).getNumAsiento());
+            }
         }
     }
 
@@ -234,14 +209,15 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
         ws.execute();
     }
 
-    private void GuardarPasajero(String NumeroDocumento,String NombresApellidos){
+    private void GuardarPasajero(String NumeroDocumento,String ApellidosNombres){
         String ParamNombres, ParamValores;
         ParamNombres="Ndoc#Apellidosnombre";
-        ParamValores=NumeroDocumento + "#"+NombresApellidos;
+        ParamValores=NumeroDocumento + "#"+ApellidosNombres;
         TaskCallWS ws=new TaskCallWS();
         ws.Parametros("setPasajero",getString(R.string.key_method_ws_save_passenger),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
         ws.execute();
     }
+
 
     private void reservarVenta(String NomUsuario,String ClaveUsuario,String NomTerminal,
                                String IdViaje,String CodiRuta,String NumeroDocumento,
@@ -252,7 +228,6 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
                 IdViaje + "#" + CodiRuta + "#" + NumeroDocumento + "#" +
                 Precio + "#" + NumeroAsiento;
 
-        Log.i(TAG, "Error887 para: " + ParamValores);
         TaskCallWS ws=new TaskCallWS();
         ws.Parametros("setGrabarReserva",getString(R.string.key_method_ws_save_reserva),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
         ws.execute();
@@ -263,47 +238,40 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
 
             if(respuesta.equals("Nuevo")){
                 Toast.makeText(getBaseContext(), R.string.msg_New_Passenger, Toast.LENGTH_LONG).show();
-                btnGuardarPasajeroPassenger.setEnabled(true);
-                etNombresPassenger.setEnabled(true);
-                etApellidoPaternoPassenger.setEnabled(true);
-                etApellidoMaternoPassenger.setEnabled(true);
-                etNombresPassenger.setText("");
-                etApellidoPaternoPassenger.setText("");
-                etApellidoMaternoPassenger.setText("");
+                if(TipoDocumento.equals("DNI")==false){
+                    etApellidosNombresPassenger.setEnabled(true);
+                }else{
+                    etApellidosNombresPassenger.setEnabled(false);
+                }
+                etApellidosNombresPassenger.setText("");
                 guardarDatosPasajero("","","");
-                btnReservarPassenger.setEnabled(false);
+                btnReservarPassenger.setEnabled(true);
+                NuevoPasajero=true;
             }else{
+                NuevoPasajero=false;
                 if(respuesta.contains("|")){
-                    etNombresPassenger.setEnabled(false);
-                    etApellidoPaternoPassenger.setEnabled(false);
-                    etApellidoMaternoPassenger.setEnabled(false);
+                    etApellidosNombresPassenger.setEnabled(false);
                     respuesta=respuesta.replace("|",";");
                     String[] Cadena = respuesta.split(";");
                     if(Cadena.length>0){
-                        etNombresPassenger.setText(Cadena[2]);
-                        etApellidoPaternoPassenger.setText(Cadena[0]);
-                        etApellidoMaternoPassenger.setText(Cadena[1]);
+                        etApellidosNombresPassenger.setText(Cadena[0] + " " + Cadena[1] + " " + Cadena[2]);
                         guardarDatosPasajero(Cadena[2],Cadena[0],Cadena[1]);
                         if(SessionManager.getTurnoViaje().getListaPasajeros()!=null &&
                                 SessionManager.getTurnoViaje().getListaPasajeros().size()>0){
                             btnReservarPassenger.setEnabled(true);
                         }
                         if(TipoDocumento.toUpperCase().equals("DNI") && (Cadena[1]==null || Cadena[1].isEmpty())){
-                            btnGuardarPasajeroPassenger.setEnabled(true);
-                            etNombresPassenger.setEnabled(true);
-                            etApellidoPaternoPassenger.setEnabled(true);
-                            etApellidoMaternoPassenger.setEnabled(true);
+                            etApellidosNombresPassenger.setEnabled(true);
                         }
                     }
                 }else{
                     Toast.makeText(getBaseContext(), R.string.msg_Error_Doc_Passenger, Toast.LENGTH_LONG).show();
-                    btnGuardarPasajeroPassenger.setEnabled(true);
-                    etNombresPassenger.setEnabled(true);
-                    etApellidoPaternoPassenger.setEnabled(true);
-                    etApellidoMaternoPassenger.setEnabled(true);
-                    etNombresPassenger.setText("");
-                    etApellidoPaternoPassenger.setText("");
-                    etApellidoMaternoPassenger.setText("");
+                    if(TipoDocumento.equals("DNI")==false){
+                        etApellidosNombresPassenger.setEnabled(true);
+                    }else{
+                        etApellidosNombresPassenger.setEnabled(false);
+                    }
+                    etApellidosNombresPassenger.setText("");
                     guardarDatosPasajero("","","");
                     btnReservarPassenger.setEnabled(false);
                 }
@@ -320,14 +288,25 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
             try {
                 Integer IdPasajero=Integer.parseInt(respuesta);
                 if(IdPasajero>0){
-                    Toast.makeText(getBaseContext(), R.string.msg_New_Passenger_Success, Toast.LENGTH_LONG).show();
+                    if(NuevoPasajero){
+                        reservarVenta(SessionManager.getUsuario().getNomUsuario(),
+                                SessionManager.getUsuario().getPassUsuario(),
+                                SessionManager.getTurnoViaje().getNomOrigen(),
+                                String.valueOf(SessionManager.getTurnoViaje().getIdViaje()),
+                                String.valueOf(SessionManager.getTurnoViaje().getRutaViaje().getRutaId()),
+                                SessionManager.getTurnoViaje().getListaPasajeros().get(0).getNumDocumento(),
+                                String.valueOf(SessionManager.getTurnoViaje().getListaPasajeros().get(0).getPrecioAsiento()),
+                                SessionManager.getTurnoViaje().getListaPasajeros().get(0).getNumAsiento());
+                    }
                 }else{
                     Toast.makeText(getBaseContext(), R.string.msg_Error_Save_Passenger, Toast.LENGTH_LONG).show();
                 }
             }catch (Exception ex){
                 Toast.makeText(getBaseContext(), R.string.msg_Error_Save_Passenger, Toast.LENGTH_LONG).show();
             }
+
         }
+        NuevoPasajero=false;
     }
 
     private void wsGrabarReservaVenta(String respuesta){
@@ -348,10 +327,7 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
 
     private void nuevoPasajero(){
         etNroDocumentoPassenger.setText("");
-        etNombresPassenger.setText("");
-        etApellidoPaternoPassenger.setText("");
-        etApellidoMaternoPassenger.setText("");
-        //etPrecioPromocionalPassenger.setText(String.valueOf(SessionManager.getTurnoViaje().getRutaViaje().getRutaPrecio()));
+        etApellidosNombresPassenger.setText("");
     }
 
     private void guardarDatosPasajero(String Nombres,String ApellidoPaterno,String ApellidoMaterno){

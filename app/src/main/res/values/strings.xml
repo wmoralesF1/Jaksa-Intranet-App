@@ -18,7 +18,7 @@
     <string name="msg_Error_Doc_Passenger">Documento de pasajero invalido.</string>
     <string name="msg_Error_Conexion">Error de conexion.Reintente.</string>
     <string name="msg_Incomplet_Numero_Documento_Passenger">Ingresar numero de documento del pasajero.</string>
-    <string name="msg_Incomplet_Nombres_Passenger">Ingresar nombres del pasajero.</string>
+    <string name="msg_Incomplet_ApellidosNombres_Passenger">Ingresar apellidos y nombres del pasajero.</string>
     <string name="msg_Incomplet_ApellidoPaterno_Passenger">Ingresar apellido paterno del pasajero.</string>
     <string name="msg_Incomplet_ApellidoMaterno_Passenger">Ingresar apellido materno del pasajero.</string>
 

@@ -38,6 +38,7 @@ import org.ksoap2.transport.HttpTransportSE;
 import java.util.ArrayList;
 
 public class ListaMenuActivity extends AppCompatActivity {
+    String TAG="Menu Principal";
     ArrayList<MenuModel> listaOpciones = new ArrayList<>();
     LinearLayout llMenuOpciones;
     @Override
@@ -122,7 +123,7 @@ public class ListaMenuActivity extends AppCompatActivity {
         }
         catch (Exception e)
         {
-            Log.i("Hola", "Error " + e.getMessage());
+            Log.i(TAG, "Error " + e.getMessage());
         }
 
 
@@ -137,8 +138,19 @@ public class ListaMenuActivity extends AppCompatActivity {
         int width = outMetrics.widthPixels;
         int height = outMetrics.heightPixels;
         Log.i("TAG", "Method 1: height::" + height + "  width::" + width);*/
+        Log.i("Hola", "Error887 1: " + SessionManager.getUsuario().getListaMenu().get(0).getClave());
+        Log.i("Hola", "Error887 2: " + item.getClave());
 
-        if(SessionManager.getUsuario().getListaMenu().get(0).getClave().equals(item.getClave())){
+        /*if(SessionManager.getUsuario().getListaMenu().get(0).getClave().equals(item.getClave())){
+            Intent i;
+            i = new Intent(this, SubMenuActivity.class);
+            i.putExtra("idMenuPadre", String.valueOf(item.getId()));
+            i.putExtra("nomMenuPadre", String.valueOf(item.getTextoPrimario()));
+            startActivity(i);
+        }else{
+            Toast.makeText(getBaseContext(), R.string.msg_Error_Block_Acceso, Toast.LENGTH_LONG).show();
+        }*/
+        if(item.getClave().equals("VENTAS")){
             Intent i;
             i = new Intent(this, SubMenuActivity.class);
             i.putExtra("idMenuPadre", String.valueOf(item.getId()));
