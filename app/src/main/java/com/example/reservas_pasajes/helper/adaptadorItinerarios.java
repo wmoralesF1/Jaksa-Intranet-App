@@ -69,7 +69,7 @@ public class adaptadorItinerarios extends BaseAdapter{
         tvHoraPartida.setText("Hora Partida: " + entidad.getHoraReserva());
         //tvAsientosLibres.setText(entidad.getAsientosLibres() + " Asientos Libres");
 
-        if((position%2)==0){
+        if(entidad.getNomServicio().toUpperCase().equals("VIP")){
             GradientDrawable gradiColor=new GradientDrawable();
             gradiColor.setColor(Color.parseColor("#EECD00"));
             llRow.setBackground(gradiColor);

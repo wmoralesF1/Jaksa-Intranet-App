@@ -9,10 +9,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.reservas_pasajes.helper.AdaptadorRutas;
 import com.example.reservas_pasajes.helper.SessionManager;
+import com.example.reservas_pasajes.helper.adaptadorItinerarios;
+import com.example.reservas_pasajes.models.ItinerarioModel;
 import com.example.reservas_pasajes.models.RutaModel;
 
 public class SelectRouteActivity extends AppCompatActivity implements View.OnClickListener  {
@@ -21,37 +25,35 @@ public class SelectRouteActivity extends AppCompatActivity implements View.OnCli
     TextView tvFechaHoraReservaSelectRoute;
     TextView tvServicioSelectRoute;
     TextView tvPrecioSelectRoute;
-    Spinner sRutaSelectRoute;
-    TextView tvAsientosLibresSelectRoute;
+    ListView lvRutasSelectRoute;
+    AdaptadorRutas adaptador;
     Button btnPreviousSelectRoute;
-    Button btnNextSelectRoute;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_route);
-        sRutaSelectRoute=findViewById(R.id.sRutaSelectRoute);
+
+        lvRutasSelectRoute=findViewById(R.id.lvRutasSelectRoute);
         btnPreviousSelectRoute=findViewById(R.id.btnAtrasSelectRoute);
-        btnNextSelectRoute=findViewById(R.id.btnContinuarSelectRoute);
         btnPreviousSelectRoute.setOnClickListener(this);
-        btnNextSelectRoute.setOnClickListener(this);
 
-        ArrayAdapter<RutaModel> rutasAdapter=new ArrayAdapter<RutaModel>(SelectRouteActivity.this,
-                android.R.layout.simple_spinner_dropdown_item, SessionManager.getTurnoViaje().getListaRutas());
 
-        sRutaSelectRoute.setAdapter(rutasAdapter);
-        sRutaSelectRoute.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        adaptador=new AdaptadorRutas(this, SessionManager.getTurnoViaje().getListaRutas());
+        lvRutasSelectRoute.setAdapter(adaptador);
+        lvRutasSelectRoute.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int index, long id) {
-                RutaModel entidad= (RutaModel) parent.getItemAtPosition(index);
-                SessionManager.getTurnoViaje().setRutaViaje(entidad);
-                DetalleReserva();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
+                int n;
+                RutaModel itemItinerario = (RutaModel) adapterView.getItemAtPosition(index);
+                if(itemItinerario!=null){
+                    SessionManager.getTurnoViaje().setRutaViaje(itemItinerario);
+                    Continuar();
+                }
 
             }
         });
+
+        DetalleReserva();
 
     }
 
@@ -60,11 +62,9 @@ public class SelectRouteActivity extends AppCompatActivity implements View.OnCli
         tvFechaHoraReservaSelectRoute=findViewById(R.id.tvFechaHoraReservaSelectRoute);
         tvServicioSelectRoute=findViewById(R.id.tvServicioSelectRoute);
         tvPrecioSelectRoute=findViewById(R.id.tvPrecioSelectRoute);
-        tvAsientosLibresSelectRoute=findViewById(R.id.tvAsientosLibresSelectRoute);
 
         tvFechaHoraReservaSelectRoute.setText(SessionManager.getTurnoViaje().getFechaReserva() + " - " + SessionManager.getTurnoViaje().getHoraReserva());
         tvServicioSelectRoute.setText(SessionManager.getTurnoViaje().getNomServicio());
-        tvAsientosLibresSelectRoute.setText(String.valueOf(SessionManager.getTurnoViaje().getAsientosLibres()));
         if(SessionManager.getTurnoViaje().getRutaViaje()!=null){
             tvDescRutaSelectRoute.setText(SessionManager.getTurnoViaje().getRutaViaje().getRutaDescripcion());
             tvPrecioSelectRoute.setText("S/ " + String.valueOf(SessionManager.getTurnoViaje().getRutaViaje().getRutaPrecio()));
@@ -88,8 +88,6 @@ public class SelectRouteActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         if(v.getId()==btnPreviousSelectRoute.getId()){
             Atras();
-        }else if(v.getId()==btnNextSelectRoute.getId()){
-            Continuar();
         }
     }
 }

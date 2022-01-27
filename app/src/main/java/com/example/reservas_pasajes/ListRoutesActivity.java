@@ -119,27 +119,35 @@ public class ListRoutesActivity extends AppCompatActivity {
         RutaModel oRutaModelEmpty = new RutaModel(0,"Sin Precio" , 0);
         listaRutasViajeEmpty.add(oRutaModelEmpty);
         if(!respuesta.isEmpty()) {
-            String[] Cadena = respuesta.split("#");
-            if(Cadena.length>0){
-                String[] Ruta_id = Cadena[0].split(";");
-                String[] Ruta_Descripcion = Cadena[1].split(";");
-                String[] Ruta_Precio = Cadena[2].split(";");
-                for (int i = 0; i < Ruta_id.length; i++) {
-                    if(!(Ruta_id[i] ==null) && !(Ruta_Descripcion[i] ==null) && !(Ruta_Precio[i]==null)){
-                        RutaModel oRutaModel=new RutaModel();
-                        oRutaModel.setRutaId(Integer.parseInt(Ruta_id[i]));
-                        oRutaModel.setRutaDescripcion(Ruta_Descripcion[i].toUpperCase());
-                        oRutaModel.setRutaPrecio(Double.parseDouble(Ruta_Precio[i]));
-                        listaRutasViaje.add(oRutaModel);
-                    }else{
-                        listaRutasViaje.add(oRutaModelEmpty);
-                        break;
+            if(respuesta.contains("#")){
+                String[] Cadena = respuesta.split("#");
+                Log.i("Hola", "Error887 " + respuesta);
+                if(Cadena.length>0){
+                    String[] Ruta_id = Cadena[0].split(";");
+                    String[] Ruta_Descripcion = Cadena[1].split(";");
+                    String[] Ruta_Precio = Cadena[2].split(";");
+                    for (int i = 0; i < Ruta_id.length; i++) {
+                        if(!(Ruta_id[i] ==null) && !(Ruta_Descripcion[i] ==null) && !(Ruta_Precio[i]==null)){
+                            RutaModel oRutaModel=new RutaModel();
+                            oRutaModel.setRutaId(Integer.parseInt(Ruta_id[i]));
+                            oRutaModel.setRutaDescripcion(Ruta_Descripcion[i].toUpperCase());
+                            oRutaModel.setRutaPrecio(Double.parseDouble(Ruta_Precio[i]));
+                            listaRutasViaje.add(oRutaModel);
+                        }else{
+                            listaRutasViaje.add(oRutaModelEmpty);
+                            break;
+                        }
                     }
-                }
 
+                }else{
+                    Toast.makeText(getBaseContext(), "Sin precio", Toast.LENGTH_LONG).show();
+                    listaRutasViaje.add(oRutaModelEmpty);
+                }
             }else{
+                Toast.makeText(getBaseContext(), respuesta, Toast.LENGTH_LONG).show();
                 listaRutasViaje.add(oRutaModelEmpty);
             }
+
         }
 
         SessionManager.getTurnoViaje().setListaRutas(listaRutasViaje);

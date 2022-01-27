@@ -7,20 +7,20 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_marginVertical="5dp"
-        android:paddingHorizontal="5dp"
+        android:paddingVertical="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/tvHoraPartida"
+            android:id="@+id/tvRutaSelectRoute"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
+            android:layout_weight="60"
             android:textSize="15sp"></TextView>
         <TextView
-            android:id="@+id/tvDescServicio"
+            android:id="@+id/tvPrecioSelectRoute"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="50"
+            android:layout_weight="40"
             android:textSize="15sp"></TextView>
 
     </LinearLayout>

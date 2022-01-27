@@ -45,55 +45,28 @@
 
 
     </LinearLayout>
-
-
     <LinearLayout
         android:orientation="vertical"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ruta Viaje:"
-            android:textSize="20sp"></TextView>
-        <Spinner
-            android:id="@+id/sRutaSelectRoute"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></Spinner>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Asientos Libres:"
-            android:textSize="20sp"></TextView>
-        <TextView
-            android:id="@+id/tvAsientosLibresSelectRoute"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:text="Rutas Viaje:"
             android:textSize="20sp"></TextView>
 
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="15dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        <ListView
+            android:id="@+id/lvRutasSelectRoute"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
         <Button
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="Atras"
             android:layout_marginRight="10dp"
             android:id="@+id/btnAtrasSelectRoute"></Button>
-        <Button
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:text="Continuar"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/btnContinuarSelectRoute"></Button>
-
     </LinearLayout>
 
 
