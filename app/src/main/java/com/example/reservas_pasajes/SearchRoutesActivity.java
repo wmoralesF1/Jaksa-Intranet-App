@@ -155,6 +155,7 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void BuscarTurnos(){
+
         String ParamNombres, ParamValores;
         ParamNombres="Fecha#Terminal#destino";
         ParamValores=SessionManager.getViaje().getFechaReserva() + "#" +  SessionManager.getViaje().getNomOrigen() + "#" + SessionManager.getViaje().getNomDestino();
@@ -163,37 +164,14 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
         ws.execute();
     }
 
-    private void BuscarAsientosOcupados(String NroViaje){
-        String ParamNombres, ParamValores;
-        ParamNombres="NroViaje";
-        ParamValores=NroViaje;
-        TaskCallWS ws=new TaskCallWS();
-        if(!NroViaje.isEmpty()){
-            ws.NroViaje=Integer.parseInt(NroViaje);
-        }
-        ws.Parametros("AsientosOcupados",getString(R.string.key_method_ws_list_asientos_ocupados),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
-        ws.execute();
-    }
-
-    private void BuscarRutas(String NroViaje,String Destino){
-        String ParamNombres, ParamValores;
-        ParamNombres="Viaje#pDestino";
-        ParamValores=NroViaje + "#" + Destino;
-        TaskCallWS ws=new TaskCallWS();
-        if(!NroViaje.isEmpty()){
-            ws.NroViaje=Integer.parseInt(NroViaje);
-        }
-        ws.Parametros("Tarifas",getString(R.string.key_method_ws_search_routes_viaje),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
-        ws.execute();
-    }
-
-
 
     @Override
     public void onClick(View v) {
-
         viaje.setFechaReserva(fechaReserva);
         SessionManager.setViaje(viaje);
+        if(SessionManager.getSalidaTurnos()!=null && SessionManager.getSalidaTurnos().size()>0){
+            SessionManager.getSalidaTurnos().clear();
+        }
         BuscarTurnos();
     }
 
@@ -206,25 +184,31 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
                 String[] HoraReserva = Cadena[2].split(";");
                 String[] AsientoBus = Cadena[3].split(";");
                 String[] AsientoBusPrimerPiso = Cadena[3].split(";");
-
-                for (int i = 0; i < Viaje_id.length-1; i++) {
-                    if((!Viaje_id[i].isEmpty() && !(Viaje_id[i] ==null)) && (!Servicio[i].isEmpty() && !(Servicio[i] ==null)) && (!AsientoBus[i].isEmpty() && !(AsientoBus[i]==null)))
+                if(Viaje_id.length>0){
+                    for (int i = 0; i < Viaje_id.length-1; i++) {
+                        if((!Viaje_id[i].isEmpty() && !(Viaje_id[i] ==null)) && (!Servicio[i].isEmpty() && !(Servicio[i] ==null)) && (!AsientoBus[i].isEmpty() && !(AsientoBus[i]==null)))
                         {
-                        ItinerarioModel oItinerarioModel=new ItinerarioModel();
-                        oItinerarioModel.setIdViaje(Integer.parseInt(Viaje_id[i]));
-                        oItinerarioModel.setNomServicio(Servicio[i].toUpperCase());
-                        oItinerarioModel.setHoraReserva(HoraReserva[i]);
-                        oItinerarioModel.setAsientosBus(Integer.parseInt(AsientoBus[i]));
-                        oItinerarioModel.setAsientosBusPrimerPiso(Integer.parseInt(AsientoBusPrimerPiso[i]));
-                        oItinerarioModel.setAsientosBusSegundoPiso(Integer.parseInt(AsientoBus[i])-Integer.parseInt(AsientoBusPrimerPiso[i]));
-                        salidaTurnos.add(oItinerarioModel);
+                            ItinerarioModel oItinerarioModel=new ItinerarioModel();
+                            oItinerarioModel.setIdViaje(Integer.parseInt(Viaje_id[i]));
+                            oItinerarioModel.setNomServicio(Servicio[i].toUpperCase());
+                            oItinerarioModel.setHoraReserva(HoraReserva[i]);
+                            oItinerarioModel.setAsientosBus(Integer.parseInt(AsientoBus[i]));
+                            oItinerarioModel.setAsientosBusPrimerPiso(Integer.parseInt(AsientoBusPrimerPiso[i]));
+                            oItinerarioModel.setAsientosBusSegundoPiso(Integer.parseInt(AsientoBus[i])-Integer.parseInt(AsientoBusPrimerPiso[i]));
+                            salidaTurnos.add(oItinerarioModel);
+                        }
+
                     }
 
+                    SessionManager.setSalidaTurnos(salidaTurnos);
+                    Intent i;
+                    i = new Intent(this.getApplicationContext(), ListRoutesActivity.class);
+                    startActivity(i);
                 }
-                SessionManager.setSalidaTurnos(salidaTurnos);
-                Intent i;
-                i = new Intent(this.getApplicationContext(), ListRoutesActivity.class);
-                startActivity(i);
+                else
+                {
+                    Toast.makeText(getBaseContext(), R.string.msg_Error_No_Salidas, Toast.LENGTH_LONG).show();
+                }
 
             }
             else

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.reservas_pasajes.R;
+import com.example.reservas_pasajes.ReservationListActivity;
 import com.example.reservas_pasajes.SearchRoutesActivity;
 import com.example.reservas_pasajes.SubMenuActivity;
 import com.example.reservas_pasajes.models.MenuModel;
@@ -85,6 +86,10 @@ public class adaptadorListaMenu extends BaseAdapter {
         if(item.getClave()=="RESERVA_PASAJES"){
             Intent i;
             i = new Intent(context, SearchRoutesActivity.class);
+            context.startActivity(i);
+        }else if(item.getClave()=="LISTADO_RESERVAS"){
+            Intent i;
+            i = new Intent(context, ReservationListActivity.class);
             context.startActivity(i);
         }
 

@@ -78,7 +78,7 @@ public class SubMenuActivity extends AppCompatActivity {
                 "RESERVA de PASAJES","","RESERVA_PASAJES",12,
                 3));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "CONSOLIDADO de VENTAS","","CONSOLIDADO_VENTAS",13,
+                "LISTADO de RESERVAS","","LISTADO_RESERVAS",13,
                 3));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
                 "CUENTAS por COBRAR","","CUENTAS_COBRAR",14,
@@ -108,15 +108,15 @@ public class SubMenuActivity extends AppCompatActivity {
 
     public void Navegacion(MenuModel item){
         Intent i;
-        String favoritos_id;
-        String favoritos_placas;
-        SharedPreferences.Editor editor;
-        String Cadena;
 
         switch (item.getClave())
         {
             case "RESERVA_PASAJES":
                 i = new Intent(this, SearchRoutesActivity.class);
+                startActivity(i);
+                break;
+            case "LISTADO_RESERVAS":
+                i = new Intent(this, ReservationListActivity.class);
                 startActivity(i);
                 break;
         }

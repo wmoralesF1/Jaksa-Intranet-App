@@ -60,14 +60,14 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
+            android:layout_weight="20"
             android:text="Pasajero : "
             android:textSize="15sp"></TextView>
         <TextView
             android:id="@+id/tvNomPasajeroDetalleReserva"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="70"
+            android:layout_weight="80"
             android:textSize="15sp"></TextView>
     </LinearLayout>
     <LinearLayout
@@ -89,14 +89,14 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="30"
+            android:layout_weight="25"
             android:text="N° Asiento : "
             android:textSize="15sp"></TextView>
         <TextView
             android:id="@+id/tvNumAsientoDetalleReserva"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
+            android:layout_weight="25"
             android:textSize="15sp"></TextView>
 
     </LinearLayout>
@@ -107,6 +107,4 @@
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"></Button>
-
-
 </LinearLayout>

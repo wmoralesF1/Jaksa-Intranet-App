@@ -121,12 +121,11 @@ public class ListRoutesActivity extends AppCompatActivity {
         if(!respuesta.isEmpty()) {
             if(respuesta.contains("#")){
                 String[] Cadena = respuesta.split("#");
-                Log.i("Hola", "Error887 " + respuesta);
                 if(Cadena.length>0){
                     String[] Ruta_id = Cadena[0].split(";");
                     String[] Ruta_Descripcion = Cadena[1].split(";");
                     String[] Ruta_Precio = Cadena[2].split(";");
-                    for (int i = 0; i < Ruta_id.length; i++) {
+                    for (int i = 0; i <= Ruta_id.length-1; i++) {
                         if(!(Ruta_id[i] ==null) && !(Ruta_Descripcion[i] ==null) && !(Ruta_Precio[i]==null)){
                             RutaModel oRutaModel=new RutaModel();
                             oRutaModel.setRutaId(Integer.parseInt(Ruta_id[i]));
@@ -154,7 +153,7 @@ public class ListRoutesActivity extends AppCompatActivity {
         SessionManager.getTurnoViaje().setAsientosLibres(SessionManager.getTurnoViaje().getAsientosBus()-SessionManager.getTurnoViaje().getListaAsientosOcupados().size());
 
         if(SessionManager.getTurnoViaje().getListaRutas().get(0).getRutaPrecio()>0 &&
-                SessionManager.getTurnoViaje().getListaRutas().size()>1){
+                SessionManager.getTurnoViaje().getListaRutas().size()>0){
             Intent i;
             i = new Intent(this.getApplicationContext(), SelectRouteActivity.class);
             startActivity(i);
@@ -201,7 +200,6 @@ public class ListRoutesActivity extends AppCompatActivity {
             }
             if (result.equals(""))
             {
-                Log.i("Hola", "Error887 : " + KeyMetodo);
                 Toast.makeText(getBaseContext(), "No se pudo conectar.", Toast.LENGTH_LONG).show();
             }
             else{

@@ -254,6 +254,9 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
                     respuesta=respuesta.replace("|",";");
                     String[] Cadena = respuesta.split(";");
                     if(Cadena.length>0){
+                        Cadena[0]=Cadena[0].replace("_","");
+                        Cadena[1]=Cadena[1].replace("_","");
+                        Cadena[2]=Cadena[2].replace("_","");
                         etApellidosNombresPassenger.setText(Cadena[0] + " " + Cadena[1] + " " + Cadena[2]);
                         guardarDatosPasajero(Cadena[2],Cadena[0],Cadena[1]);
                         if(SessionManager.getTurnoViaje().getListaPasajeros()!=null &&
@@ -297,6 +300,7 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
                                 SessionManager.getTurnoViaje().getListaPasajeros().get(0).getNumDocumento(),
                                 String.valueOf(SessionManager.getTurnoViaje().getListaPasajeros().get(0).getPrecioAsiento()),
                                 SessionManager.getTurnoViaje().getListaPasajeros().get(0).getNumAsiento());
+                        guardarDatosPasajero(etApellidosNombresPassenger.getText().toString(),"","");
                     }
                 }else{
                     Toast.makeText(getBaseContext(), R.string.msg_Error_Save_Passenger, Toast.LENGTH_LONG).show();

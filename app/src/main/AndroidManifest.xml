@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Reservas_pasajes"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ReservationListActivity"
+            android:exported="false" />
+        <activity
             android:name=".SelectRouteActivity"
             android:exported="false" />
         <activity

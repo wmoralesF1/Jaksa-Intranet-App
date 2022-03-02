@@ -23,7 +23,6 @@
     <string name="msg_Incomplet_ApellidoMaterno_Passenger">Ingresar apellido materno del pasajero.</string>
 
 
-
     <!--Key Metodo WS-->
     <string name="key_method_ws_login_user">Login_User</string>
     <string name="key_method_ws_list_terminales">List_Terminales</string>
