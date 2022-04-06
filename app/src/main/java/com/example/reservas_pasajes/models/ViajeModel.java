@@ -3,20 +3,45 @@ package com.example.reservas_pasajes.models;
 import java.util.ArrayList;
 
 public class ViajeModel {
+    private String nomUsuario;
+    private String claveUsuario;
     private int idViaje;
+    private String nomTerminal;
     private int idOrigen;
     private String nomOrigen;
     private int idDestino;
     private String nomDestino;
-    private int idServicio;
+    private String idServicio;
     private String nomServicio;
+    private String tramoViaje;
+    private String idTramoViaje;
+    private String fechaViaje;
+    private String fechaViajeFormat;
+    private String horaViaje;
     private String fechaReserva;
     private String fechaReservaFormat;
     private String horaReserva;
     private double precioAsiento;
+    private String numBus;
     private ArrayList<PasajeroModel> listaPasajero;
     private RutaModel rutaViaje;
     private ItinerarioModel itinerarioViaje;
+
+    public String getNomUsuario() {
+        return nomUsuario;
+    }
+
+    public void setNomUsuario(String nomUsuario) {
+        this.nomUsuario = nomUsuario;
+    }
+
+    public String getClaveUsuario() {
+        return claveUsuario;
+    }
+
+    public void setClaveUsuario(String claveUsuario) {
+        this.claveUsuario = claveUsuario;
+    }
 
     public int getIdViaje() {
         return idViaje;
@@ -24,6 +49,14 @@ public class ViajeModel {
 
     public void setIdViaje(int idViaje) {
         this.idViaje = idViaje;
+    }
+
+    public String getNomTerminal() {
+        return nomTerminal;
+    }
+
+    public void setNomTerminal(String nomTerminal) {
+        this.nomTerminal = nomTerminal;
     }
 
     public int getIdOrigen() {
@@ -58,11 +91,11 @@ public class ViajeModel {
         this.nomDestino = nomDestino;
     }
 
-    public int getIdServicio() {
+    public String getIdServicio() {
         return idServicio;
     }
 
-    public void setIdServicio(int idServicio) {
+    public void setIdServicio(String idServicio) {
         this.idServicio = idServicio;
     }
 
@@ -72,6 +105,53 @@ public class ViajeModel {
 
     public void setNomServicio(String nomServicio) {
         this.nomServicio = nomServicio;
+    }
+
+    public String getTramoViaje() {
+        return tramoViaje;
+    }
+
+    public void setTramoViaje(String tramaViaje) {
+        this.tramoViaje = tramaViaje;
+    }
+    public String getIdTramoViaje() {
+        return idTramoViaje;
+    }
+
+    public void setIdTramoViaje(String idTramaViaje) {
+        this.idTramoViaje = idTramaViaje;
+    }
+
+    public String getNumBus() {
+        return numBus;
+    }
+
+    public void setNumBus(String numBus) {
+        this.numBus = numBus;
+    }
+
+    public String getFechaViaje() {
+        return fechaViaje;
+    }
+
+    public void setFechaViaje(String fechaViaje) {
+        this.fechaViaje = fechaViaje;
+    }
+
+    public String getFechaViajeFormat() {
+        return fechaViajeFormat;
+    }
+
+    public void setFechaViajeFormat(String fechaViajeFormat) {
+        this.fechaViajeFormat = fechaViajeFormat;
+    }
+
+    public String getHoraViaje() {
+        return horaViaje;
+    }
+
+    public void setHoraViaje(String horaViaje) {
+        this.horaViaje = horaViaje;
     }
 
     public String getFechaReserva() {

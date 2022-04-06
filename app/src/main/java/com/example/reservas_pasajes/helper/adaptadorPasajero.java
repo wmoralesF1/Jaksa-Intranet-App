@@ -143,8 +143,6 @@ public class adaptadorPasajero extends BaseAdapter {
         if(!respuesta.isEmpty()) {
             String[] Cadena = respuesta.split("|");
             if(Cadena.length>0){
-                Log.i("Hola", "Error887 " + Cadena[2]);
-                Log.i("Hola", "Error887 " + respuesta);
                 etNombresPasajero.setText(Cadena[2]);
             }
 
@@ -229,7 +227,6 @@ public class adaptadorPasajero extends BaseAdapter {
                 transporte.call(accionSoap, sobre);
                 SoapPrimitive resultado_xml =(SoapPrimitive)sobre.getResponse();
                 res = resultado_xml.toString();
-                Log.i("Hola", "Error887 : " + res);
             }
             catch (Exception e)
             {

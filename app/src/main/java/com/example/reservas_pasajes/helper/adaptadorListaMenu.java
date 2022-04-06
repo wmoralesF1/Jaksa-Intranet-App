@@ -13,15 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.example.reservas_pasajes.CancelReservaActivity;
+import com.example.reservas_pasajes.OpenTravelActivity;
+import com.example.reservas_pasajes.ProgrammingTravelActivity;
 import com.example.reservas_pasajes.R;
-import com.example.reservas_pasajes.ReservationListActivity;
 import com.example.reservas_pasajes.SearchRoutesActivity;
-import com.example.reservas_pasajes.SubMenuActivity;
 import com.example.reservas_pasajes.models.MenuModel;
 
 import java.util.ArrayList;
@@ -87,9 +84,17 @@ public class adaptadorListaMenu extends BaseAdapter {
             Intent i;
             i = new Intent(context, SearchRoutesActivity.class);
             context.startActivity(i);
-        }else if(item.getClave()=="LISTADO_RESERVAS"){
+        }else if(item.getClave()=="ANULACION_RESERVAS"){
             Intent i;
-            i = new Intent(context, ReservationListActivity.class);
+            i = new Intent(context, CancelReservaActivity.class);
+            context.startActivity(i);
+        /*}else if(item.getClave()=="PROGRAMACION_VIAJES"){
+            Intent i;
+            i = new Intent(context, ProgrammingTravelActivity.class);
+            context.startActivity(i);*/
+        }else if(item.getClave()=="PROGRAMACION_VIAJE"){
+            Intent i;
+            i = new Intent(context, OpenTravelActivity.class);
             context.startActivity(i);
         }
 

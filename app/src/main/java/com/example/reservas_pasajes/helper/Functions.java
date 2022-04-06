@@ -1,5 +1,7 @@
 package com.example.reservas_pasajes.helper;
 
+import static java.lang.String.format;
+
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -11,6 +13,13 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.example.reservas_pasajes.ListaMenuActivity;
+
+import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class Functions {
     public static int getAnchoPantalla(Activity appView){
@@ -58,6 +67,7 @@ public class Functions {
         Integer width= new Double (ancho*porcentajeDecimal).intValue();
         return width/2;
     }
+
     public static Bitmap getResizedBitmap(Bitmap bm, int newWidth) {
         int width = 1792;
         int height = 1792;
@@ -121,6 +131,69 @@ public class Functions {
         return resizedBitmap;*/
     }
 
+    public  static String FechaHoy(){
+        SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar calendar = Calendar.getInstance();
 
+        Date dateObj = calendar.getTime();
+        String formattedDate = dtf.format(dateObj);
+        return formattedDate;
+    }
+
+    public  static String Fecha(int day,int month,int year){
+        String año=String.valueOf(year);
+        String mes=new DecimalFormat("00").format(month);
+        String dia=new DecimalFormat("00").format(day);
+        String date=dia+"/"+ mes + "/"+ año;
+        return date;
+    }
+
+
+
+    public static int NumeroAñoFechaHoy(){
+        Calendar calendar= Calendar.getInstance();
+        return calendar.get(Calendar.YEAR);
+    }
+
+    public static int NumeroMesFechaHoy(){
+        Calendar calendar= Calendar.getInstance();
+        return calendar.get(Calendar.MONTH);
+    }
+
+    public static int NumeroDiaFechaHoy(){
+        Calendar calendar= Calendar.getInstance();
+        return calendar.get(Calendar.DAY_OF_MONTH);
+    }
+
+    public static String formatDate(Date date){
+        String pattern = "dd/MM/yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        String strDate = simpleDateFormat.format(date);
+        return strDate;
+    }
+    public static Date formatStringtoDate(String strDate){
+        String pattern = "dd/MM/yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+
+        Date date = null;
+        try {
+            date = simpleDateFormat.parse(strDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+    public static String StringFormatWsDate(String fecha){
+        String formatDate="";
+        String[] FechaArray=fecha.split("/");
+        formatDate=FechaArray[2]+FechaArray[1]+FechaArray[0];
+        return formatDate;
+    }
+
+    public static String leftzeros(int numero,int zeros){
+
+        return String.format("%0"+String.valueOf(zeros)+"d", numero);
+    }
 
 }

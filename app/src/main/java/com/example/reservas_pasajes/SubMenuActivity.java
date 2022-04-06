@@ -37,14 +37,7 @@ public class SubMenuActivity extends AppCompatActivity {
         tvTituloMenuPadre=(TextView) findViewById(R.id.tvTituloMenuPadre);
         tvTituloMenuPadre.setText(nomMenuPadre);
         lvSubMenu=(ListView)findViewById(R.id.lvSubMenu);
-        lvSubMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                vSeleccion= (MenuModel) adapterView.getItemAtPosition(i);
-                //String Opcion = vSeleccion.getClave();
-                Navegacion(vSeleccion);
-            }
-        });
+
         adaptador = new adaptadorListaMenu(this, listaOpciones);
         lvSubMenu.setAdapter(adaptador);
     }
@@ -65,32 +58,29 @@ public class SubMenuActivity extends AppCompatActivity {
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
                 "FLUJO de CAJA","","FLUJO_CAJA",8,
                 1));
+        /*listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
+                "PROGRAMACION de VIAJES","","PROGRAMACION_VIAJES",9,
+                2));*/
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "APERTURA de SERVICIOS/VIAJES","","APERTURA_SERVICIOS_VIAJES",9,
+                "PROGRAMACION de VIAJES","","PROGRAMACION_VIAJE",10,
                 2));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "POSICION de UNIDADES","","POSICION_UNIDADES",10,
-                2));
-        listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "ESTADOS RQ","","ESTADOS_RQ",11,
-                2));
-        listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "RESERVA de PASAJES","","RESERVA_PASAJES",12,
+                "RESERVA de PASAJES","","RESERVA_PASAJES",11,
                 3));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "LISTADO de RESERVAS","","LISTADO_RESERVAS",13,
+                "ANULACION de RESERVAS","","ANULACION_RESERVAS",12,
                 3));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "CUENTAS por COBRAR","","CUENTAS_COBRAR",14,
+                "CUENTAS por COBRAR","","CUENTAS_COBRAR",13,
                 3));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "ADMINISTRACION de USUARIOS","","ADMINISTRACION_USUARIOS",15,
+                "ADMINISTRACION de USUARIOS","","ADMINISTRACION_USUARIOS",14,
                 4));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "ANULAR VENTAS","","ANULAR_VENTAS",16,
+                "ANULAR VENTAS","","ANULAR_VENTAS",15,
                 4));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "CAMBIOS en RQ","","CAMBIOS_RQ",17,
+                "CAMBIOS en RQ","","CAMBIOS_RQ",16,
                 4));
 
 
@@ -104,22 +94,5 @@ public class SubMenuActivity extends AppCompatActivity {
                 listaOpciones.add(item);
             }
         }
-    }
-
-    public void Navegacion(MenuModel item){
-        Intent i;
-
-        switch (item.getClave())
-        {
-            case "RESERVA_PASAJES":
-                i = new Intent(this, SearchRoutesActivity.class);
-                startActivity(i);
-                break;
-            case "LISTADO_RESERVAS":
-                i = new Intent(this, ReservationListActivity.class);
-                startActivity(i);
-                break;
-        }
-
     }
 }

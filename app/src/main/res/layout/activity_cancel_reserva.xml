@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CancelReservaActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lista de Reservas"
+        android:textSize="25sp"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:textSize="15sp"
+            android:gravity="left"
+            android:text="F. Reserva:"></TextView>
+        <EditText
+            android:id="@+id/etFechaReservaCancelReserva"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:focusable="false"
+            android:textSize="15sp"
+            ></EditText>
+        <Button
+            android:id="@+id/btnBuscarReservaCancelReserva"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:layout_marginLeft="5dp"
+            android:textSize="10sp"
+            android:text="BUSCAR"
+            ></Button>
+
+    </LinearLayout>
+    <ListView
+        android:id="@+id/lvListaReservasCancelReserva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+</LinearLayout>
