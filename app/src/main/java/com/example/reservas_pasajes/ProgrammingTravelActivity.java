@@ -68,12 +68,13 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
     int Id_Viaje=0;
     String nomTerminal="";
     boolean edicion=false;
+    String TAG="";
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_programming_travel);
-
+        TAG="Edicion de Viaje";
         etFechaProgramminTravel= findViewById(R.id.etFechaProgramminTravel);
         etHoraProgramminTravel= findViewById(R.id.etHoraProgramminTravel);
         sOrigenProgramminTravel= findViewById(R.id.sOrigenProgramminTravel);
@@ -248,7 +249,6 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
         ws.execute();
     }
 
-
     private void ModificarViaje(ViajeModel entidad){
 
         String ParamNombres, ParamValores;
@@ -261,8 +261,6 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
         ws.Parametros("setModificarHR",getString(R.string.key_method_ws_update_viaje),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
         ws.execute();
     }
-
-
 
     private void BuscarViaje(int Viaje_Id){
 
@@ -591,7 +589,7 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
             }
             catch (Exception e)
             {
-                Log.i("Hola", "Error : " + e.getMessage());
+                Log.i(TAG, "Error : " + e.getMessage());
             }
             return res;
         }

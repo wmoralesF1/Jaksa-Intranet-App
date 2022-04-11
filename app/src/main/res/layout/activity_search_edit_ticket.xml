@@ -2,16 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingVertical="15dp"
+    android:paddingHorizontal="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="15dp"
-    tools:context=".OpenTravelActivity">
+    tools:context=".SearchEditTicket">
     <TextView
-        android:id="@+id/tvtituloListaItinerarios"
+        android:id="@+id/tvtituloSearchEditTicket"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Programacion de Viajes"
+        android:text="Busqueda de Boletos de Viajes"
         android:gravity="center_horizontal"
         android:textSize="25sp"></TextView>
     <LinearLayout
@@ -26,7 +27,7 @@
             android:textSize="15sp"
             ></TextView>
         <EditText
-            android:id="@+id/etFechaViajeOpenTravel"
+            android:id="@+id/etFechaViajeSearchEditTicket"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:focusable="false"
@@ -46,7 +47,26 @@
             android:textSize="15sp"
             ></TextView>
         <Spinner
-            android:id="@+id/spTerminalOpenTravel"
+            android:id="@+id/spTerminalSearchEditTicket"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:textSize="15sp"
+            ></Spinner>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:text="Usuario :"
+            android:textSize="15sp"
+            ></TextView>
+        <Spinner
+            android:id="@+id/spUsuarioSearchEditTicket"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="65"
@@ -54,7 +74,7 @@
             ></Spinner>
     </LinearLayout>
     <Button
-        android:id="@+id/btnBuscarViajesOpenTravel"
+        android:id="@+id/btnBuscarTicketSearchEditTicket"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Buscar"
@@ -67,17 +87,18 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/btnNuevoViajeOpenTravel"
+            android:id="@+id/btnAnulaTicketSearchEditTicket"
+            android:enabled="false"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="40"
-            android:text="Agregar"
+            android:text="Anular"
             android:layout_marginRight="15sp"
-            android:drawableRight="@drawable/ic_baseline_add_circle_24"
+            android:drawableRight="@drawable/ic_baseline_delete_24"
             android:textSize="15sp"
             ></Button>
         <Button
-            android:id="@+id/btnEditarViajeOpenTravel"
+            android:id="@+id/btnEditarTicketSearchEditTicket"
             android:enabled="false"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -88,6 +109,7 @@
             android:textSize="15sp"
             ></Button>
     </LinearLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:paddingVertical="10dp"
@@ -96,42 +118,50 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="Id Viaje"
-            android:textStyle="bold"
-            android:textSize="15sp"></TextView>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="25"
-            android:text="Hora Viaje"
-            android:textStyle="bold"
-            android:textSize="15sp"></TextView>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:text="N° Bus"
+            android:text="Viaje"
             android:textStyle="bold"
-            android:textSize="15sp"></TextView>
+            android:textSize="12sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:text="Bus"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="20"
-            android:text="Tramo"
+            android:text="Boleto"
             android:textStyle="bold"
-            android:textSize="15sp"></TextView>
+            android:textSize="12sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="12"
+            android:text="Precio"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="13"
+            android:text="Asiento"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="20"
-            android:text="Servicio"
+            android:text="Estado"
             android:textStyle="bold"
-            android:textSize="15sp"></TextView>
+            android:textSize="12sp"></TextView>
 
     </LinearLayout>
+
     <ListView
-        android:id="@+id/lvListaViajeOpenTravel"
+        android:id="@+id/lvListaBoletosViajeSearchEditTicket"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
 </LinearLayout>

@@ -159,6 +159,12 @@ public class ListaMenuActivity extends AppCompatActivity {
             i.putExtra("idMenuPadre", String.valueOf(item.getId()));
             i.putExtra("nomMenuPadre", String.valueOf(item.getTextoPrimario()));
             startActivity(i);
+        }else if(item.getClave().equals("ADMINISTRATIVO")){
+            Intent i;
+            i = new Intent(this, SubMenuActivity.class);
+            i.putExtra("idMenuPadre", String.valueOf(item.getId()));
+            i.putExtra("nomMenuPadre", String.valueOf(item.getTextoPrimario()));
+            startActivity(i);
         }else{
             Toast.makeText(getBaseContext(), R.string.msg_Error_Block_Acceso, Toast.LENGTH_LONG).show();
         }

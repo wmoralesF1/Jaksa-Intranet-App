@@ -10,6 +10,8 @@
     <string name="msg_New_Passenger">Grabar nuevo pasajero.</string>
     <string name="msg_Save_Travel_OK">Viaje registrado correctamente.</string>
     <string name="msg_Modific_Travel_OK">Viaje modificado correctamente.</string>
+    <string name="msg_Modific_Ticket_Travel_OK">Boleto de Viaje modificado correctamente.</string>
+    <string name="msg_Calcel_Ticket_Travel_OK">Boleto de Viaje anulado correctamente.</string>
     <string name="msg_New_Passenger_Success">Se grabo el pasajero exitosamente.</string>
     <string name="msg_Delete_Reservas">Reserva eliminada</string>
     <string name="msg_Error_Credenciales_Login">Usuario y/o password incorrectos</string>
@@ -19,11 +21,14 @@
     <string name="msg_Error_No_Viajes">No se encontraron viajes</string>
     <string name="msg_Error_No_Tipo_Servicios">No se encontraron tipos de servicios</string>
     <string name="msg_Error_No_Tramos">No se encontraron tramos</string>
+    <string name="msg_Error_No_Usuarios">No se encontraron usuarios</string>
     <string name="msg_Error_Block_Acceso">No tiene acceso a este modulo</string>
     <string name="msg_Error_Price_Zero">No hay tarifa configurad en la tafifa seleccionada.</string>
     <string name="msg_Error_Save_Passenger">No se pudo registrar el pasajero.</string>
     <string name="msg_Error_Save_Travel">No se pudo registrar el viaje.</string>
     <string name="msg_Error_Modific_Travel">No se pudo modificar el viaje.</string>
+    <string name="msg_Error_Modific_Ticket_Travel">No se pudo modificar el boleto de viaje.</string>
+    <string name="msg_Error_Cancel_Ticket_Travel">No se pudo anular el boleto de viaje.</string>
     <string name="msg_Error_Doc_Passenger">Documento de pasajero invalido.</string>
     <string name="msg_Error_Conexion">Error de conexion.Reintente.</string>
     <string name="msg_Error_Delete_Reservas">No elimino la reserva</string>
@@ -51,6 +56,11 @@
     <string name="key_method_ws_update_viaje">Update_Viaje</string>
     <string name="key_method_ws_list_services">List_Services</string>
     <string name="key_method_ws_search_list_tramos">Search_List_Tramos</string>
+    <string name="key_method_ws_detail_production_bus">Detail_Production_Bus</string>
+    <string name="key_method_ws_search_usuarios_terminal">Search_Usuario_Terminal</string>
+    <string name="key_method_ws_search_tickets_travel">Search_Tickets_Travel</string>
+    <string name="key_method_ws_cancel_ticket_travel">Cancel_Ticket_Travel</string>
+    <string name="key_method_ws_update_ticket_travel">Update_Ticket_Travel</string>
 
     <string-array name="Terminales">
         <item>Lima</item>

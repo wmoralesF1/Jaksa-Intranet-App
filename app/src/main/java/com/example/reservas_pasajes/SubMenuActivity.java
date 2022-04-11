@@ -47,40 +47,34 @@ public class SubMenuActivity extends AppCompatActivity {
         listaSubMenu = new ArrayList<MenuModel>();
 
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "AUTORIZACION de OC's","","AUTORIZACION_OC",5,
+                "PRODUCCION BUSES","","PRODUCCION_BUSES",5,
                 1));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "CUENTAS por PAGAR","","CUENTAS_PAGAR",6,
-                1));
-        listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "CONTROL de PRESUPUESTO","","CONTROL_PRESUPUESTO",7,
-                1));
-        listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "FLUJO de CAJA","","FLUJO_CAJA",8,
-                1));
-        /*listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "PROGRAMACION de VIAJES","","PROGRAMACION_VIAJES",9,
-                2));*/
-        listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "PROGRAMACION de VIAJES","","PROGRAMACION_VIAJE",10,
+                "PROGRAMACION de VIAJES","","PROGRAMACION_VIAJE",6,
                 2));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "RESERVA de PASAJES","","RESERVA_PASAJES",11,
+                "EDICION BOLETO","","EDICION_BOLETO",7,
+                2));
+        listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
+                "PRODUCCION BUSES","","PRODUCCION_BUSES",8,
+                2));
+        listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
+                "RESERVA de PASAJES","","RESERVA_PASAJES",9,
                 3));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "ANULACION de RESERVAS","","ANULACION_RESERVAS",12,
+                "ANULACION de RESERVAS","","ANULACION_RESERVAS",10,
                 3));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "CUENTAS por COBRAR","","CUENTAS_COBRAR",13,
+                "CUENTAS por COBRAR","","CUENTAS_COBRAR",11,
                 3));
-        listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "ADMINISTRACION de USUARIOS","","ADMINISTRACION_USUARIOS",14,
+             listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
+                "ADMINISTRACION de USUARIOS","","ADMINISTRACION_USUARIOS",12,
                 4));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "ANULAR VENTAS","","ANULAR_VENTAS",15,
+                "ANULAR VENTAS","","ANULAR_VENTAS",13,
                 4));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "CAMBIOS en RQ","","CAMBIOS_RQ",16,
+                "CAMBIOS en RQ","","CAMBIOS_RQ",14,
                 4));
 
 

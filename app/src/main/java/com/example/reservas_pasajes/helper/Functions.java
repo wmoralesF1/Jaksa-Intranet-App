@@ -196,4 +196,30 @@ public class Functions {
         return String.format("%0"+String.valueOf(zeros)+"d", numero);
     }
 
+    public static boolean IsNumeric(String valor){
+        boolean estado=false;
+        try {
+            if(Integer.parseInt(valor)>0){
+                estado= true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return estado;
+    }
+
+    public static boolean IsDouble(String valor){
+        boolean estado=false;
+        try {
+            if(Double.parseDouble(valor)>0){
+                estado= true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return estado;
+    }
+
+
+
 }

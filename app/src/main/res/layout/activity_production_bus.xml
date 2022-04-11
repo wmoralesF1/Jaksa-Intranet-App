@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingVertical="15dp"
+    android:paddingHorizontal="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ProductionBusActivity">
+    <TextView
+        android:id="@+id/tvtituloProductionBus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Producción de Bus : "
+        android:gravity="center_horizontal"
+        android:textSize="25sp"></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:text="Hora Partida: "
+            android:textStyle="bold"
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:id="@+id/tvHoraPartidaDetailProducctionBus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:text="Viaje: "
+            android:textStyle="bold"
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:id="@+id/tvIdViajeDetailProducctionBus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:textSize="15sp"></TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:text="Total Pax: "
+            android:textStyle="bold"
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:id="@+id/tvTotalPaxDetailProducctionBus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:text="Total Monto: "
+            android:textStyle="bold"
+            android:textSize="15sp"></TextView>
+        <TextView
+            android:id="@+id/tvTotalMontoDetailProducctionBus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:textSize="15sp"></TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:paddingVertical="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="Tipo"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="40"
+            android:text="Ruta"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:text="N° Pax"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="Monto"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/lvListaProduccionProductionBus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+</LinearLayout>

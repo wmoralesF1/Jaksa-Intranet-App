@@ -15,6 +15,10 @@ public class ViajeModel {
     private String nomServicio;
     private String tramoViaje;
     private String idTramoViaje;
+    private String tipoVenta;
+    private String nomRutaViaje;
+    private int numPax;
+    private double montoPax;
     private String fechaViaje;
     private String fechaViajeFormat;
     private String horaViaje;
@@ -120,6 +124,38 @@ public class ViajeModel {
 
     public void setIdTramoViaje(String idTramaViaje) {
         this.idTramoViaje = idTramaViaje;
+    }
+
+    public String getTipoVenta() {
+        return tipoVenta;
+    }
+
+    public void setTipoVenta(String tipoVenta) {
+        this.tipoVenta = tipoVenta;
+    }
+
+    public String getNomRutaViaje() {
+        return nomRutaViaje;
+    }
+
+    public void setNomRutaViaje(String nomRutaViaje) {
+        this.nomRutaViaje = nomRutaViaje;
+    }
+
+    public int getNumPax() {
+        return numPax;
+    }
+
+    public void setNumPax(int numPax) {
+        this.numPax = numPax;
+    }
+
+    public double getMontoPax() {
+        return montoPax;
+    }
+
+    public void setMontoPax(double montoPax) {
+        this.montoPax = montoPax;
     }
 
     public String getNumBus() {

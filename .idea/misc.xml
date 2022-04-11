@@ -8,22 +8,28 @@
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2203125" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_cancel_reserva.xml" value="0.15833333333333333" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_detalle_reserva.xml" value="0.20416666666666666" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_edit_ticket.xml" value="0.20102564102564102" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_list_routes.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_lista_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_open_travel.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_passenger.xml" value="0.20416666666666666" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_production_bus.xml" value="0.19010416666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_programming_travel.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_reservation_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_search_edit_ticket.xml" value="0.20102564102564102" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_search_production_bus.xml" value="0.20102564102564102" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_search_reservas.xml" value="0.1712962962962963" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_search_routes.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_select_route.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_submenu.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_anulacion_reserva.xml" value="0.1712962962962963" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_detail_production_bus.xml" value="0.20102564102564102" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_itinerarios.xml" value="0.19444444444444445" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_list_prog_travel.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_list_reserva.xml" value="0.20416666666666666" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_list_ticket_travel.xml" value="0.20102564102564102" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_list_travel.xml" value="0.19537037037037036" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_pasajero.xml" value="0.20416666666666666" />

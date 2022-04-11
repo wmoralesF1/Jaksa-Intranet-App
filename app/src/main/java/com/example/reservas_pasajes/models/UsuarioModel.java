@@ -62,4 +62,9 @@ public class UsuarioModel {
     public void setListaMenu(ArrayList<MenuModel> listaMenu) {
         this.listaMenu = listaMenu;
     }
+
+    @Override
+    public String toString() {
+        return this.nomUsuario;
+    }
 }

@@ -14,6 +14,18 @@
         android:theme="@style/Theme.Reservas_pasajes"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ProductionBusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchProductionBusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditTicket"
+            android:exported="false" />
+        <activity
+            android:name=".SearchEditTicket"
+            android:exported="false" />
+        <activity
             android:name=".OpenTravelActivity"
             android:exported="false" />
         <activity

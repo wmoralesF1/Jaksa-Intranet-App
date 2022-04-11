@@ -18,6 +18,8 @@ import com.example.reservas_pasajes.CancelReservaActivity;
 import com.example.reservas_pasajes.OpenTravelActivity;
 import com.example.reservas_pasajes.ProgrammingTravelActivity;
 import com.example.reservas_pasajes.R;
+import com.example.reservas_pasajes.SearchEditTicket;
+import com.example.reservas_pasajes.SearchProductionBusActivity;
 import com.example.reservas_pasajes.SearchRoutesActivity;
 import com.example.reservas_pasajes.models.MenuModel;
 
@@ -88,13 +90,17 @@ public class adaptadorListaMenu extends BaseAdapter {
             Intent i;
             i = new Intent(context, CancelReservaActivity.class);
             context.startActivity(i);
-        /*}else if(item.getClave()=="PROGRAMACION_VIAJES"){
-            Intent i;
-            i = new Intent(context, ProgrammingTravelActivity.class);
-            context.startActivity(i);*/
         }else if(item.getClave()=="PROGRAMACION_VIAJE"){
             Intent i;
             i = new Intent(context, OpenTravelActivity.class);
+            context.startActivity(i);
+        }else if(item.getClave()=="EDICION_BOLETO"){
+            Intent i;
+            i = new Intent(context, SearchEditTicket.class);
+            context.startActivity(i);
+        }else if(item.getClave()=="PRODUCCION_BUSES"){
+            Intent i;
+            i = new Intent(context, SearchProductionBusActivity.class);
             context.startActivity(i);
         }
 
