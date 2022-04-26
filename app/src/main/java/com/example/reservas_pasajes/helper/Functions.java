@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Functions {
+    static String  TAG="Functions";
     public static int getAnchoPantalla(Activity appView){
         int ancho=350;
         try {
@@ -31,7 +32,7 @@ public class Functions {
             return outMetrics.widthPixels;
         }catch (Exception e)
         {
-            Log.i("Hola", "Error " + e.getMessage());
+            Log.i(TAG, "Error " + e.getMessage());
         }
 
         return ancho;
@@ -46,7 +47,7 @@ public class Functions {
             alto= outMetrics.heightPixels;
         }catch (Exception e)
         {
-            Log.i("Hola", "Error " + e.getMessage());
+            Log.i(TAG, "Error " + e.getMessage());
         }
 
         return alto;
@@ -73,8 +74,6 @@ public class Functions {
         int height = 1792;
         //int width = bm.getWidth();
         //int height = bm.getHeight();
-        Log.i("Hola", "Var ancho Imagen: " + width);
-        Log.i("Hola", "Var alto Imagen: " + height);
         float aspect = (float)width / height;
         float scaleWidth = newWidth;
         float scaleHeight = scaleWidth / aspect;// yeah!
@@ -89,14 +88,11 @@ public class Functions {
         return resizedBitmap;
     }
 
-
-
     public static Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
 
         //Redimensionamos
         int width = bm.getWidth();
         int height = bm.getHeight();
-        Log.i("Hola", "Var ancho Imagen: " + width);
         float scaleWidth = ((float) newWidth) / width;
         float scaleHeight = ((float) newHeight) / height;
         // create a matrix for the manipulation
@@ -110,11 +106,6 @@ public class Functions {
         int height = bm.getHeight();
         float scaleWidth = ((float) newWidth) / width;
         float scaleHeight = ((float) newHeight) / height;
-        Log.i("Hola", "Var ancho Imagen: " + width);
-        Log.i("Hola", "Var alto Imagen: " + height);
-        Log.i("Hola", "Var ancho Escala: " + scaleWidth);
-        Log.i("Hola", "Var alto Escala: " + scaleHeight);
-        Log.i("Hola", "Var ancho Escala2: " + newWidth);
 
         // CREATE A MATRIX FOR THE MANIPULATION
         Matrix matrix = new Matrix();
@@ -126,8 +117,6 @@ public class Functions {
                 bm, 0, 0, width, height, matrix, false);
         bm.recycle();
 
-        Log.i("Hola", "Var New ancho Imagen: " + resizedBitmap.getWidth());
-        Log.i("Hola", "Var New alto Imagen: " + resizedBitmap.getHeight());
         return resizedBitmap;*/
     }
 
@@ -147,8 +136,6 @@ public class Functions {
         String date=dia+"/"+ mes + "/"+ año;
         return date;
     }
-
-
 
     public static int NumeroAñoFechaHoy(){
         Calendar calendar= Calendar.getInstance();
@@ -172,6 +159,7 @@ public class Functions {
         String strDate = simpleDateFormat.format(date);
         return strDate;
     }
+
     public static Date formatStringtoDate(String strDate){
         String pattern = "dd/MM/yyyy";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -184,6 +172,7 @@ public class Functions {
         }
         return date;
     }
+
     public static String StringFormatWsDate(String fecha){
         String formatDate="";
         String[] FechaArray=fecha.split("/");
@@ -220,6 +209,9 @@ public class Functions {
         return estado;
     }
 
+    public static boolean ValidaRegExp(String expreg,String cadena){
+        return cadena.matches(expreg);
+    }
 
 
 }

@@ -372,7 +372,7 @@ public class SearchEditTicket extends AppCompatActivity  implements View.OnClick
             }
             catch (Exception e)
             {
-                Log.i("Hola", "Error : " + e.getMessage());
+                Log.i(TAG, "Error : " + e.getMessage());
             }
             return res;
         }

@@ -15,6 +15,8 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 
 import com.example.reservas_pasajes.CancelReservaActivity;
+import com.example.reservas_pasajes.EmployeeActivity;
+import com.example.reservas_pasajes.FilterEmployeeActivity;
 import com.example.reservas_pasajes.OpenTravelActivity;
 import com.example.reservas_pasajes.ProgrammingTravelActivity;
 import com.example.reservas_pasajes.R;
@@ -101,6 +103,10 @@ public class adaptadorListaMenu extends BaseAdapter {
         }else if(item.getClave()=="PRODUCCION_BUSES"){
             Intent i;
             i = new Intent(context, SearchProductionBusActivity.class);
+            context.startActivity(i);
+        }else if(item.getClave()=="EMPLEADOS"){
+            Intent i;
+            i = new Intent(context, FilterEmployeeActivity.class);
             context.startActivity(i);
         }
 

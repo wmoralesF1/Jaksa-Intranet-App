@@ -1,7 +1,6 @@
 package com.example.reservas_pasajes;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,28 +10,24 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.reservas_pasajes.helper.SessionManager;
 import com.example.reservas_pasajes.helper.adaptadorItinerarios;
 import com.example.reservas_pasajes.models.AsientoModel;
 import com.example.reservas_pasajes.models.ItinerarioModel;
 import com.example.reservas_pasajes.models.RutaModel;
-import com.example.reservas_pasajes.models.ViajeModel;
-
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class ListRoutesActivity extends AppCompatActivity {
 
     private ListView lvItinerarios;
     private adaptadorItinerarios adaptador;
     TextView tvnumresultados;
+    String TAG="Listado de Ruta";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -246,7 +241,7 @@ public class ListRoutesActivity extends AppCompatActivity {
             }
             catch (Exception e)
             {
-                Log.i("Hola", "Error : " + e.getMessage());
+                Log.i(TAG, "Error : " + e.getMessage());
             }
             return res;
         }

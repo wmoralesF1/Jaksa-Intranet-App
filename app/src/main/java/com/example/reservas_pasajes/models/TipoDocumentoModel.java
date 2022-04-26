@@ -1,8 +1,15 @@
 package com.example.reservas_pasajes.models;
 
-public class TipoDocumentoModel {
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+public class TipoDocumentoModel {
+    @SerializedName("tipoDocumentoId")
+    @Expose
     private int idTipoDocumento;
+
+    @SerializedName("tipoDocumentoNombre")
+    @Expose
     private String nomTipoDocumento;
 
     TipoDocumentoModel(){}
@@ -30,7 +37,7 @@ public class TipoDocumentoModel {
 
     @Override
     public String toString() {
-        return nomTipoDocumento;
+        return nomTipoDocumento.toUpperCase();
     }
 
 }

@@ -254,11 +254,18 @@ public class PassengerActivity extends AppCompatActivity implements View.OnClick
                     respuesta=respuesta.replace("|",";");
                     String[] Cadena = respuesta.split(";");
                     if(Cadena.length>0){
-                        Cadena[0]=Cadena[0].replace("_","");
-                        Cadena[1]=Cadena[1].replace("_","");
-                        Cadena[2]=Cadena[2].replace("_","");
-                        etApellidosNombresPassenger.setText(Cadena[0] + " " + Cadena[1] + " " + Cadena[2]);
-                        guardarDatosPasajero(Cadena[2],Cadena[0],Cadena[1]);
+                        String nombres="";
+                        String apellidoPaterno="";
+                        String apellidoMaterno="";
+
+                        apellidoPaterno=Cadena[0].replace("_","");
+                        nombres=Cadena[2].replace("_","");
+                        if(Cadena.length>2){
+                            apellidoMaterno=Cadena[1].replace("_","");
+                        }
+
+                        etApellidosNombresPassenger.setText(apellidoPaterno + " " + apellidoMaterno + " " + nombres);
+                        guardarDatosPasajero(nombres,apellidoPaterno,apellidoMaterno);
                         if(SessionManager.getTurnoViaje().getListaPasajeros()!=null &&
                                 SessionManager.getTurnoViaje().getListaPasajeros().size()>0){
                             btnReservarPassenger.setEnabled(true);

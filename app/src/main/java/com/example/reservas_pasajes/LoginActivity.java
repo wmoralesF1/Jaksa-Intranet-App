@@ -9,14 +9,24 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.reservas_pasajes.helper.SessionManager;
+import com.example.reservas_pasajes.models.CargoModel;
+import com.example.reservas_pasajes.models.GrupoEmpresarialModel;
+import com.example.reservas_pasajes.models.LocalModel;
 import com.example.reservas_pasajes.models.MenuModel;
+import com.example.reservas_pasajes.models.PaisModel;
 import com.example.reservas_pasajes.models.TerminalModel;
+import com.example.reservas_pasajes.models.TipoDocumentoModel;
+import com.example.reservas_pasajes.models.TipoServicioModel;
 import com.example.reservas_pasajes.models.UsuarioModel;
+import com.example.reservas_pasajes.service.ApiClient;
+import com.example.reservas_pasajes.service.ResponseListGeneric;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -27,6 +37,9 @@ import org.ksoap2.transport.HttpTransportSE;
 import java.util.ArrayList;
 
 import dmax.dialog.SpotsDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -39,10 +52,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText etPassword;
     Button btnIngresar;
     AlertDialog pDialog=null;
+    String TAG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        TAG="Login";
         etUsuario=findViewById(R.id.etUsuario);
         etPassword=findViewById(R.id.etPassword);
         btnIngresar=findViewById(R.id.btnIngresar);
@@ -52,6 +67,167 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 .setMessage(R.string.msg_Progress_Login)
                 .setCancelable(false)
                 .build();
+
+        ListarTiposDocumentos();
+        ListarNacionalidades();
+        ListarCargos();
+        ListarTiposServicios();
+        ListarGruposEmpresariales();
+        ListarLocales();
+    }
+
+    private void ListarTiposDocumentos(){
+        ApiClient.getInstance().ListarTipoDocumentoIdentidad(new Callback<ResponseListGeneric<TipoDocumentoModel>>() {
+            @Override
+            public void onResponse(Call<ResponseListGeneric<TipoDocumentoModel>> call, Response<ResponseListGeneric<TipoDocumentoModel>> response) {
+                if(response.isSuccessful()) {
+
+                    ResponseListGeneric<TipoDocumentoModel> data = response.body();
+                    if (data.isSuccess()) {
+                        SessionManager.setListadoTiposDocumentos(data.getData());
+                    } else {
+                    }
+                }else{
+                    Log.i(TAG, "Error en el listado de tipo de documentos");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseListGeneric<TipoDocumentoModel>> call, Throwable t) {
+                //hideProgress();
+                Log.i(TAG, "Error en el listado de tipo de documentos");
+            }
+        });
+    }
+
+    private void ListarTiposServicios(){
+        ApiClient.getInstance().ListarTiposServicios(new Callback<ResponseListGeneric<TipoServicioModel>>() {
+            @Override
+            public void onResponse(Call<ResponseListGeneric<TipoServicioModel>> call, Response<ResponseListGeneric<TipoServicioModel>> response) {
+                //hideProgress();
+
+                if(response.isSuccessful()) {
+
+                    ResponseListGeneric<TipoServicioModel> data = response.body();
+                    if (data.isSuccess()) {
+
+                        SessionManager.setListadoTipoServicios(data.getData());
+                    } else {
+                    }
+                }else{
+                    Log.i(TAG, "Error en el listado de tipos de servicios");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseListGeneric<TipoServicioModel>> call, Throwable t) {
+                Log.i(TAG, "Error en el listado de tipos de servicios");
+            }
+        });
+    }
+
+    private void ListarNacionalidades(){
+        ApiClient.getInstance().ListarPaises(new Callback<ResponseListGeneric<PaisModel>>() {
+            @Override
+            public void onResponse(Call<ResponseListGeneric<PaisModel>> call, Response<ResponseListGeneric<PaisModel>> response) {
+                //hideProgress();
+
+                if(response.isSuccessful()) {
+
+                    ResponseListGeneric<PaisModel> data = response.body();
+                    if (data.isSuccess()) {
+
+                        SessionManager.setListadoPaises(data.getData());
+                    } else {
+                    }
+                }else{
+                    Log.i(TAG, "Error en el listado de paises");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseListGeneric<PaisModel>> call, Throwable t) {
+                Log.i(TAG, "Error en el listado de paises");
+            }
+        });
+    }
+
+    private void ListarCargos(){
+        ApiClient.getInstance().ListarCargos(new Callback<ResponseListGeneric<CargoModel>>() {
+            @Override
+            public void onResponse(Call<ResponseListGeneric<CargoModel>> call, Response<ResponseListGeneric<CargoModel>> response) {
+                //hideProgress();
+
+                if(response.isSuccessful()) {
+
+                    ResponseListGeneric<CargoModel> data = response.body();
+                    if (data.isSuccess()) {
+
+                        SessionManager.setListadoCargos(data.getData());
+                    } else {
+                    }
+                }else{
+                    Log.i(TAG, "Error en el listado de cargos");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseListGeneric<CargoModel>> call, Throwable t) {
+                Log.i(TAG, "Error en el listado de cargos");
+            }
+        });
+    }
+
+    private void ListarGruposEmpresariales(){
+        ApiClient.getInstance().ListarGruposEmpresariales(new Callback<ResponseListGeneric<GrupoEmpresarialModel>>() {
+            @Override
+            public void onResponse(Call<ResponseListGeneric<GrupoEmpresarialModel>> call, Response<ResponseListGeneric<GrupoEmpresarialModel>> response) {
+                //hideProgress();
+
+                if(response.isSuccessful()) {
+
+                    ResponseListGeneric<GrupoEmpresarialModel> data = response.body();
+                    if (data.isSuccess()) {
+
+                        SessionManager.setListadoGruposEmpresariales(data.getData());
+                    } else {
+                    }
+                }else{
+                    Log.i(TAG, "Error en el listado de grupos empresariales");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseListGeneric<GrupoEmpresarialModel>> call, Throwable t) {
+                Log.i(TAG, "Error en el listado de grupos empresariales");
+            }
+        });
+    }
+
+    private void ListarLocales(){
+        ApiClient.getInstance().ListarLocales(new Callback<ResponseListGeneric<LocalModel>>() {
+            @Override
+            public void onResponse(Call<ResponseListGeneric<LocalModel>> call, Response<ResponseListGeneric<LocalModel>> response) {
+                //hideProgress();
+
+                if(response.isSuccessful()) {
+
+                    ResponseListGeneric<LocalModel> data = response.body();
+                    if (data.isSuccess()) {
+
+                        SessionManager.setListadoLocales(data.getData());
+                    } else {
+                    }
+                }else{
+                    Log.i(TAG, "Error en el listado de locales");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseListGeneric<LocalModel>> call, Throwable t) {
+                Log.i(TAG, "Error en el listado de locales");
+            }
+        });
     }
 
     private void wsValidarLogin(String respuesta){
@@ -274,7 +450,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
             catch (Exception e)
             {
-                Log.i("Hola", "Error " + e.getMessage());
+                Log.i(TAG, "Error " + e.getMessage());
             }
             return res;
         }

@@ -74,8 +74,8 @@ public class SubMenuActivity extends AppCompatActivity {
                 "ANULAR VENTAS","","ANULAR_VENTAS",13,
                 4));
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
-                "CAMBIOS en RQ","","CAMBIOS_RQ",14,
-                4));
+                "EMPLEADOS","","EMPLEADOS",14,
+                1));
 
 
 

@@ -50,6 +50,7 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
     Button btnBuscarItinerarios;
     AlertDialog pDialog=null;
     String fechaReserva;
+    String TAG="Busqueda de Turnos";
     int IndexAsientosOcupados=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -339,7 +340,7 @@ public class SearchRoutesActivity extends AppCompatActivity implements View.OnCl
             }
             catch (Exception e)
             {
-                Log.i("Hola", "Error : " + e.getMessage());
+                Log.i(TAG, "Error : " + e.getMessage());
             }
             IndexAsientosOcupados++;
             return res;

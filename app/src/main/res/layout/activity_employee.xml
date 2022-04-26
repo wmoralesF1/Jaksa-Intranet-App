@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingVertical="20dp"
+    android:paddingHorizontal="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".EmployeeActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvtituloListaItinerarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registro de Empleado"
+            android:gravity="center_horizontal"
+            android:textSize="25sp"></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Nombres: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etNombresEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:maxLength="50"
+                android:layout_marginBottom="10dp"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Apellidos: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etApellidosEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:maxLength="50"
+                android:layout_marginBottom="10dp"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Tipo Doc.: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spTipoDocumentoEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="N° Doc.: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etNumeroDocumentoEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:maxLength="15"
+                android:layout_marginBottom="10dp"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Est. Civil: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spEstadoCivilEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Fecha Nac.: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etFechaNacimientoEmployee"
+                android:focusable="false"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:maxLength="20"
+                android:layout_marginBottom="10dp"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Nacionalidad: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spNacionalidadEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Cargo: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spCargoEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Cat. Licen.: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spCategoriaLicenciaEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="N° Licencia: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etNumeroLicenciaEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:maxLength="20"
+                android:layout_marginBottom="10dp"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="T. Servicio: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spTipoServicioEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Gpo. Emp.: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spGrupoEmpresarialEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Local: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spLocalEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Estado: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spEstadoEmployee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnGrabarEmployee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Grabar"
+                android:drawableRight="@drawable/ic_baseline_save_24"
+                android:textSize="12sp"></Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -40,6 +40,7 @@ public class adaptadorPasajero extends BaseAdapter {
     private Context context;
     private LayoutInflater inflater;
     EditText etNombresPasajero;
+    String TAG="Adaptador de Pasajero";
     public adaptadorPasajero(Context context, ArrayList<PasajeroModel> listModel) {
         this.context = context;
         this.listPasajeros = listModel;
@@ -184,7 +185,7 @@ public class adaptadorPasajero extends BaseAdapter {
             }
             if (result.equals(""))
             {
-                Log.i("Hola", "Error : " + KeyMetodo);
+                Log.i(TAG, "Error : " + KeyMetodo);
                 //Toast.makeText(getBaseContext(), "No se pudo conectar.", Toast.LENGTH_LONG).show();
             }
             else{
@@ -230,7 +231,7 @@ public class adaptadorPasajero extends BaseAdapter {
             }
             catch (Exception e)
             {
-                Log.i("Hola", "Error : " + e.getMessage());
+                Log.i(TAG, "Error : " + e.getMessage());
             }
             return res;
         }
