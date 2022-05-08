@@ -17,6 +17,7 @@ import android.widget.Button;
 import com.example.reservas_pasajes.CancelReservaActivity;
 import com.example.reservas_pasajes.EmployeeActivity;
 import com.example.reservas_pasajes.FilterEmployeeActivity;
+import com.example.reservas_pasajes.FilterUserActivity;
 import com.example.reservas_pasajes.OpenTravelActivity;
 import com.example.reservas_pasajes.ProgrammingTravelActivity;
 import com.example.reservas_pasajes.R;
@@ -107,6 +108,10 @@ public class adaptadorListaMenu extends BaseAdapter {
         }else if(item.getClave()=="EMPLEADOS"){
             Intent i;
             i = new Intent(context, FilterEmployeeActivity.class);
+            context.startActivity(i);
+        }else if(item.getClave()=="USUARIOS"){
+            Intent i;
+            i = new Intent(context, FilterUserActivity.class);
             context.startActivity(i);
         }
 

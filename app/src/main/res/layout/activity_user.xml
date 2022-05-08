@@ -1,9 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingVertical="20dp"
+    android:paddingHorizontal="15dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".UserActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvtituloListaItinerarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registro de Usuario"
+            android:gravity="center_horizontal"
+            android:textSize="25sp"></TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Usuario: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etUsuarioUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:layout_marginBottom="10dp"
+                ></EditText>
+        </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Contraseña: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etClaveUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Contraseña 2: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etClave2User"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="D.N.I.: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etNumeroDocumentoUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:layout_marginBottom="10dp"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Local: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etLocalUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:layout_marginBottom="10dp"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Cen. Operaciones: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <EditText
+                android:id="@+id/etCentroOperacionesUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textSize="15sp"
+                android:layout_marginBottom="10dp"
+                ></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Nivel: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spNivelUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:text="Estado: "
+                android:gravity="left"
+                android:textSize="15sp"></TextView>
+            <Spinner
+                android:id="@+id/spEstadoUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:layout_marginBottom="10dp"></Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnGrabarUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Grabar"
+                android:drawableRight="@drawable/ic_baseline_save_24"
+                android:textSize="12sp"></Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -102,14 +102,12 @@ public class FilterEmployeeActivity extends AppCompatActivity implements View.On
                                 @Override
                                 public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
                                     oEmpleadoModel = (EmpleadoModel) adapterView.getItemAtPosition(index);
-                                    for (int i = 0; i <= lvListaEmpleadosFilterEmployee.getChildCount()-1; i++) {
-                                        if(index == i ){
-                                            lvListaEmpleadosFilterEmployee.getChildAt(index).setBackgroundColor(Color.YELLOW);
-                                            btnAgregarFilterEmployee.setEnabled(true);
-                                            btnEditarFilterEmployee.setEnabled(true);
-                                        }else{
-                                            lvListaEmpleadosFilterEmployee.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
-                                        }
+                                    if(oEmpleadoModel!=null){
+                                        btnAgregarFilterEmployee.setEnabled(true);
+                                        btnEditarFilterEmployee.setEnabled(true);
+                                    }else{
+                                        btnAgregarFilterEmployee.setEnabled(false);
+                                        btnEditarFilterEmployee.setEnabled(false);
                                     }
                                 }
                             });

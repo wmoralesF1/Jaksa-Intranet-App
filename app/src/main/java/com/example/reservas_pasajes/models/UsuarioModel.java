@@ -6,14 +6,15 @@ public class UsuarioModel {
     private int idUsuario;
     private String nomUsuario;
     private String passUsuario;
-
+    private String pass2Usuario;
+    private String numeroDocumentoUsuario;
     private int idTerminal;
     private String nomTerminal;
+    private String centroOperaciones;
+    private String estado;
+    private String nivel;
     private ArrayList<MenuModel> listaMenu;
-
     public void UsuarioModel(){}
-
-
 
     public int getIdUsuario() {
         return idUsuario;
@@ -39,6 +40,22 @@ public class UsuarioModel {
         this.passUsuario = passUsuario;
     }
 
+    public String getPass2Usuario() {
+        return pass2Usuario;
+    }
+
+    public void setPass2Usuario(String pass2Usuario) {
+        this.pass2Usuario = pass2Usuario;
+    }
+
+    public String getNumeroDocumentoUsuario() {
+        return numeroDocumentoUsuario;
+    }
+
+    public void setNumeroDocumentoUsuario(String numeroDocumentoUsuario) {
+        this.numeroDocumentoUsuario = numeroDocumentoUsuario;
+    }
+
     public int getIdTerminal() {
         return idTerminal;
     }
@@ -53,6 +70,30 @@ public class UsuarioModel {
 
     public void setNomTerminal(String nomTerminal) {
         this.nomTerminal = nomTerminal;
+    }
+
+    public String getCentroOperaciones() {
+        return centroOperaciones;
+    }
+
+    public void setCentroOperaciones(String centroOperaciones) {
+        this.centroOperaciones = centroOperaciones;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
     }
 
     public ArrayList<MenuModel> getListaMenu() {

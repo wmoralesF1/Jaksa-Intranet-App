@@ -132,21 +132,6 @@ public class ListaMenuActivity extends AppCompatActivity {
 
     public void Navegacion(MenuModel item){
 
-        /*WindowManager manager = this.getWindowManager();
-        DisplayMetrics outMetrics = new DisplayMetrics();
-        manager.getDefaultDisplay().getMetrics(outMetrics);
-        int width = outMetrics.widthPixels;
-        int height = outMetrics.heightPixels;
-        Log.i("TAG", "Method 1: height::" + height + "  width::" + width);*/
-        /*if(SessionManager.getUsuario().getListaMenu().get(0).getClave().equals(item.getClave())){
-            Intent i;
-            i = new Intent(this, SubMenuActivity.class);
-            i.putExtra("idMenuPadre", String.valueOf(item.getId()));
-            i.putExtra("nomMenuPadre", String.valueOf(item.getTextoPrimario()));
-            startActivity(i);
-        }else{
-            Toast.makeText(getBaseContext(), R.string.msg_Error_Block_Acceso, Toast.LENGTH_LONG).show();
-        }*/
         if(item.getClave().equals("VENTAS")){
             Intent i;
             i = new Intent(this, SubMenuActivity.class);
@@ -160,6 +145,12 @@ public class ListaMenuActivity extends AppCompatActivity {
             i.putExtra("nomMenuPadre", String.valueOf(item.getTextoPrimario()));
             startActivity(i);
         }else if(item.getClave().equals("ADMINISTRATIVO")){
+            Intent i;
+            i = new Intent(this, SubMenuActivity.class);
+            i.putExtra("idMenuPadre", String.valueOf(item.getId()));
+            i.putExtra("nomMenuPadre", String.valueOf(item.getTextoPrimario()));
+            startActivity(i);
+        }else if(item.getClave().equals("SISTEMAS")){
             Intent i;
             i = new Intent(this, SubMenuActivity.class);
             i.putExtra("idMenuPadre", String.valueOf(item.getId()));

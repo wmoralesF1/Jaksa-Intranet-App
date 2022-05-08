@@ -13,6 +13,8 @@
     <string name="msg_Modific_Travel_OK">Viaje modificado correctamente.</string>
     <string name="msg_Save_Employee_OK">Empleado registrado correctamente.</string>
     <string name="msg_Modific_Employee_OK">Empleado modificado correctamente.</string>
+    <string name="msg_Save_User_OK">Usuario registrado correctamente.</string>
+    <string name="msg_Modific_User_OK">Usuario modificado correctamente.</string>
     <string name="msg_Modific_Ticket_Travel_OK">Boleto de Viaje modificado correctamente.</string>
     <string name="msg_Calcel_Ticket_Travel_OK">Boleto de Viaje anulado correctamente.</string>
     <string name="msg_New_Passenger_Success">Se grabo el pasajero exitosamente.</string>
@@ -29,8 +31,10 @@
     <string name="msg_Error_Price_Zero">No hay tarifa configurad en la tafifa seleccionada.</string>
     <string name="msg_Error_Save_Passenger">No se pudo registrar el pasajero.</string>
     <string name="msg_Error_Save_Travel">No se pudo registrar el viaje.</string>
+    <string name="msg_Error_Save_User">No se pudo registrar el usuario.</string>
     <string name="msg_Error_Modific_Travel">No se pudo modificar el viaje.</string>
     <string name="msg_Error_Modific_Ticket_Travel">No se pudo modificar el boleto de viaje.</string>
+    <string name="msg_Error_Modific_User">No se pudo modificar el usuario.</string>
     <string name="msg_Error_Cancel_Ticket_Travel">No se pudo anular el boleto de viaje.</string>
     <string name="msg_Error_Doc_Passenger">Documento de pasajero invalido.</string>
     <string name="msg_Error_Conexion">Error de conexion.Reintente.</string>
@@ -57,6 +61,9 @@
     <string name="key_method_ws_search_viaje_id">Search_Viaje_Id</string>
     <string name="key_method_ws_insert_viaje">Insert_Viaje</string>
     <string name="key_method_ws_update_viaje">Update_Viaje</string>
+    <string name="key_method_ws_search_list_usuario">Search_List_Usuarios</string>
+    <string name="key_method_ws_insert_usuario">Insert_Usuario</string>
+    <string name="key_method_ws_update_usuario">Update_Usuario</string>
     <string name="key_method_ws_list_services">List_Services</string>
     <string name="key_method_ws_search_list_tramos">Search_List_Tramos</string>
     <string name="key_method_ws_detail_production_bus">Detail_Production_Bus</string>

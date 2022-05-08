@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingVertical="15dp"
+    android:paddingHorizontal="5dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FilterUserActivity">
+    <TextView
+        android:id="@+id/tvtituloFilterUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Busqueda de Usuarios"
+        android:gravity="center_horizontal"
+        android:textSize="25sp"></TextView>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:text="Usuario :"
+            android:textSize="15sp"
+            ></TextView>
+        <EditText
+            android:id="@+id/etUsuarioFilterUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:textSize="15sp"
+            ></EditText>
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnBuscarFilterUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:drawableRight="@drawable/ic_baseline_search_24"
+        android:textSize="12sp"
+        ></Button>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnAgregarFilterUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="40"
+            android:text="Agregar"
+            android:layout_marginRight="15sp"
+            android:drawableRight="@drawable/ic_baseline_add_circle_24"
+            android:textSize="12sp"
+            ></Button>
+        <Button
+            android:id="@+id/btnEditarFilterUser"
+            android:enabled="false"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="40"
+            android:text="Editar"
+            android:layout_marginLeft="15sp"
+            android:drawableRight="@drawable/ic_baseline_edit_24"
+            android:textSize="12sp"
+            ></Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:text="Usuario"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="45"
+            android:text="Local"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:text="Estado"
+            android:textStyle="bold"
+            android:textSize="12sp"></TextView>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvListaUsuariosFilterUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+</LinearLayout>

@@ -265,14 +265,12 @@ public class SearchEditTicket extends AppCompatActivity  implements View.OnClick
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
                             oVentaModel = (VentaModel) adapterView.getItemAtPosition(index);
-                            for (int i = 0; i <= lvListaBoletosViajeSearchEditTicket.getChildCount()-1; i++) {
-                                if(index == i ){
-                                    lvListaBoletosViajeSearchEditTicket.getChildAt(index).setBackgroundColor(Color.YELLOW);
-                                    btnAnulaTicketSearchEditTicket.setEnabled(true);
-                                    btnEditarTicketSearchEditTicket.setEnabled(true);
-                                }else{
-                                    lvListaBoletosViajeSearchEditTicket.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
-                                }
+                            if(oVentaModel!=null){
+                                btnAnulaTicketSearchEditTicket.setEnabled(true);
+                                btnEditarTicketSearchEditTicket.setEnabled(true);
+                            }else{
+                                btnAnulaTicketSearchEditTicket.setEnabled(false);
+                                btnEditarTicketSearchEditTicket.setEnabled(false);
                             }
                         }
                     });

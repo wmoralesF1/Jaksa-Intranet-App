@@ -1,6 +1,8 @@
 package com.example.reservas_pasajes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -19,11 +21,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.reservas_pasajes.Adaptadores.AdaptadorListaProgramacionViaje;
-import com.example.reservas_pasajes.Adaptadores.AdaptadorListaReservas;
 import com.example.reservas_pasajes.helper.Functions;
 import com.example.reservas_pasajes.helper.SessionManager;
-import com.example.reservas_pasajes.models.ReservaModel;
-import com.example.reservas_pasajes.models.RutaModel;
 import com.example.reservas_pasajes.models.TerminalModel;
 import com.example.reservas_pasajes.models.ViajeModel;
 
@@ -59,6 +58,9 @@ public class OpenTravelActivity extends AppCompatActivity implements View.OnClic
         btnNuevoViajeOpenTravel=findViewById(R.id.btnNuevoViajeOpenTravel);
         btnEditarViajeOpenTravel=findViewById(R.id.btnEditarViajeOpenTravel);
         lvListaViajeOpenTravel=findViewById(R.id.lvListaViajeOpenTravel);
+
+
+
         etFechaViajeOpenTravel.setText(Functions.FechaHoy());
         final int year=Functions.NumeroAñoFechaHoy();
         final int month=Functions.NumeroMesFechaHoy();
@@ -83,7 +85,7 @@ public class OpenTravelActivity extends AppCompatActivity implements View.OnClic
                 oViajeModel = (ViajeModel) adapterView.getItemAtPosition(index);
                 for (int i = 0; i <= lvListaViajeOpenTravel.getChildCount()-1; i++) {
                     if(index == i ){
-                        lvListaViajeOpenTravel.getChildAt(index).setBackgroundColor(Color.YELLOW);
+                        //lvListaViajeOpenTravel.getChildAt(index).setBackgroundColor(Color.YELLOW);
                         btnEditarViajeOpenTravel.setEnabled(true);
                     }else{
                         lvListaViajeOpenTravel.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
@@ -114,6 +116,9 @@ public class OpenTravelActivity extends AppCompatActivity implements View.OnClic
         btnBuscarViajesOpenTravel.setOnClickListener(this);
         btnNuevoViajeOpenTravel.setOnClickListener(this);
         btnEditarViajeOpenTravel.setOnClickListener(this);
+
+
+
     }
 
     private void BuscarViajes(){
@@ -166,17 +171,17 @@ public class OpenTravelActivity extends AppCompatActivity implements View.OnClic
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
                             oViajeModel = (ViajeModel) adapterView.getItemAtPosition(index);
-                            for (int i = 0; i <= lvListaViajeOpenTravel.getChildCount()-1; i++) {
-                                if(index == i ){
-                                    lvListaViajeOpenTravel.getChildAt(index).setBackgroundColor(Color.YELLOW);
-                                    btnEditarViajeOpenTravel.setEnabled(true);
-                                }else{
-                                    lvListaViajeOpenTravel.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
-                                }
+                            if(oViajeModel!=null){
+                                btnEditarViajeOpenTravel.setEnabled(true);
+                            }else{
+                                btnEditarViajeOpenTravel.setEnabled(false);
                             }
                         }
                     });
-                }
+
+
+
+               }
                 else
                 {
                     Toast.makeText(getBaseContext(), R.string.msg_Error_No_Viajes, Toast.LENGTH_LONG).show();
@@ -217,11 +222,11 @@ public class OpenTravelActivity extends AppCompatActivity implements View.OnClic
             i = new Intent(this, ProgrammingTravelActivity.class);
             i.putExtra("idViaje", String.valueOf(oViajeModel.getIdViaje()));
             i.putExtra("nomTerminal", ((TerminalModel)spTerminalOpenTravel.getSelectedItem()).getNomTerminal());
-
             startActivity(i);
         }
-
     }
+
+
 
     public class TaskCallWS extends AsyncTask<Void, Integer, String> {
 

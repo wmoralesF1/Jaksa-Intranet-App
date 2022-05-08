@@ -11,6 +11,7 @@
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_edit_ticket.xml" value="0.20102564102564102" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_employee.xml" value="0.20102564102564102" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_filter_employee.xml" value="0.20102564102564102" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_filter_user.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_list_routes.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_lista_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
@@ -26,9 +27,11 @@
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_search_routes.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_select_route.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_submenu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/activity_user.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_anulacion_reserva.xml" value="0.1712962962962963" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_detail_production_bus.xml" value="0.20102564102564102" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_filtro_empleados.xml" value="0.20416666666666666" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_filtro_usuarios.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_itinerarios.xml" value="0.19444444444444445" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_list_prog_travel.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_list_reserva.xml" value="0.20416666666666666" />
@@ -37,6 +40,7 @@
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_pasajero.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/item_listview_rutas.xml" value="0.20416666666666666" />
+        <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Intranet/GitHub/Jaksa-Intranet-App/app/src/main/res/layout/list_row_programaciones.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Reservas-Pasajes/GitHub/Jaksa-Reserva-Pasajes/app/src/main/res/layout/activity_detalle_reserva.xml" value="0.19947916666666668" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Reservas-Pasajes/GitHub/Jaksa-Reserva-Pasajes/app/src/main/res/layout/activity_list_routes.xml" value="0.20416666666666666" />
         <entry key="..\:/Datos/Proyectos/Jaksa/Jaksa-Reservas-Pasajes/GitHub/Jaksa-Reserva-Pasajes/app/src/main/res/layout/activity_lista_menu.xml" value="0.17407407407407408" />

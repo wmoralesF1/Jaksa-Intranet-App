@@ -146,6 +146,7 @@
 
     <ListView
         android:id="@+id/lvListaEmpleadosFilterEmployee"
+        android:listSelector="#FFFF00"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
 
