@@ -121,16 +121,20 @@ public class ListRoutesActivity extends AppCompatActivity {
                     String[] Ruta_Descripcion = Cadena[1].split(";");
                     String[] Ruta_Precio = Cadena[2].split(";");
                     for (int i = 0; i <= Ruta_id.length-1; i++) {
-                        if(!(Ruta_id[i] ==null) && !(Ruta_Descripcion[i] ==null) && !(Ruta_Precio[i]==null)){
+                        if(!(Ruta_id[i] ==null)
+                                && !(Ruta_Descripcion[i] ==null)
+                                && !(Ruta_Precio[i]==null)
+                                && Double.parseDouble(Ruta_Precio[i])>0)
+                        {
                             RutaModel oRutaModel=new RutaModel();
                             oRutaModel.setRutaId(Integer.parseInt(Ruta_id[i]));
                             oRutaModel.setRutaDescripcion(Ruta_Descripcion[i].toUpperCase());
                             oRutaModel.setRutaPrecio(Double.parseDouble(Ruta_Precio[i]));
                             listaRutasViaje.add(oRutaModel);
-                        }else{
+                        }/*else{
                             listaRutasViaje.add(oRutaModelEmpty);
                             break;
-                        }
+                        }*/
                     }
 
                 }else{
@@ -143,7 +147,9 @@ public class ListRoutesActivity extends AppCompatActivity {
             }
 
         }
-
+        if(listaRutasViaje.size()==0){
+            listaRutasViaje.add(oRutaModelEmpty);
+        }
         SessionManager.getTurnoViaje().setListaRutas(listaRutasViaje);
         SessionManager.getTurnoViaje().setAsientosLibres(SessionManager.getTurnoViaje().getAsientosBus()-SessionManager.getTurnoViaje().getListaAsientosOcupados().size());
 
@@ -162,6 +168,7 @@ public class ListRoutesActivity extends AppCompatActivity {
         if(KeyMetodo==getString(R.string.key_method_ws_list_asientos_ocupados)){
             wsListarAsientosOcupados(Respuesta);
         }else if(KeyMetodo==getString(R.string.key_method_ws_search_routes_viaje)){
+            Log.i("Hola", "Error887 Id: " + Respuesta);
             wsBuscarRutasViaje(Respuesta);
         }
 

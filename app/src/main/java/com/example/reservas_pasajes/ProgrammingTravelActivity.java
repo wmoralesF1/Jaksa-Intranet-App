@@ -36,6 +36,7 @@ import com.example.reservas_pasajes.models.ItinerarioModel;
 import com.example.reservas_pasajes.models.TerminalModel;
 import com.example.reservas_pasajes.models.TipoServicioModel;
 import com.example.reservas_pasajes.models.TramoModel;
+import com.example.reservas_pasajes.models.UnidadModel;
 import com.example.reservas_pasajes.models.UsuarioModel;
 import com.example.reservas_pasajes.models.ViajeModel;
 
@@ -57,16 +58,20 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
     Spinner sOrigenProgramminTravel;
     Spinner sTramoProgramminTravel;
     Spinner sServicioProgramminTravel;
+    Spinner sBusProgramminTravel;
     DatePickerDialog datePicker;
     TimePickerDialog timePicker;
     Button btnGrabarNuevoViaje;
     ArrayList<TipoServicioModel> listTipoServicios=new ArrayList<>();
+    ArrayList<UnidadModel> listUnidades=new ArrayList<>();
     ArrayList<TramoModel> listTramos=new ArrayList<>();
     TipoServicioModel oTipoServicioModel=new TipoServicioModel();
+    UnidadModel oUnidadModel=new UnidadModel();
     TramoModel oTramoModel=new TramoModel();
     ViajeModel oViajeModel=new ViajeModel();
     int Id_Viaje=0;
     String nomTerminal="";
+    String nroUnidad="";
     boolean edicion=false;
     String TAG="";
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -80,6 +85,7 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
         sOrigenProgramminTravel= findViewById(R.id.sOrigenProgramminTravel);
         sTramoProgramminTravel= findViewById(R.id.sTramoProgramminTravel);
         sServicioProgramminTravel= findViewById(R.id.sServicioProgramminTravel);
+        sBusProgramminTravel= findViewById(R.id.sBusProgramminTravel);
         btnGrabarNuevoViaje= findViewById(R.id.btnGrabarNuevoViaje);
         //Calendario
         Calendar calendarActual= Calendar.getInstance();
@@ -163,14 +169,20 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
 
         ListarTipoServicios();
 
+        ListarUnidades();
+
         btnGrabarNuevoViaje.setOnClickListener(this);
         Bundle bundle = getIntent().getExtras();
         Id_Viaje =Integer.parseInt(bundle.getString("idViaje"));
         nomTerminal=bundle.getString("nomTerminal").toString();
+        nroUnidad=bundle.getString("nroUnidad").toString();
         if(Id_Viaje>0){
             edicion=true;
             BuscarViaje(Id_Viaje);
             etFechaProgramminTravel.setEnabled(false);
+            sBusProgramminTravel.setEnabled(true);
+        }else{
+            sBusProgramminTravel.setEnabled(false);
         }
     }
 
@@ -217,6 +229,15 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
 
     }
 
+    private void ListarUnidades(){
+        String ParamNombres, ParamValores;
+        ParamNombres="sentido";
+        ParamValores="1";
+        TaskCallWS ws=new TaskCallWS();
+        ws.Parametros("BusesActivos",getString(R.string.key_method_ws_list_buses),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
+        ws.execute();
+    }
+
     private void ListarTipoServicios(){
         String ParamNombres, ParamValores;
         ParamNombres="";
@@ -243,7 +264,8 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
         ParamValores= Functions.StringFormatWsDate(entidad.getFechaViaje())+"#"+
                 entidad.getNomTerminal()+"#"+entidad.getNomUsuario()+"#"+entidad.getClaveUsuario()+"#"+
                 Functions.StringFormatWsDate(entidad.getFechaViaje()) + " " + entidad.getHoraViaje()+"#"+
-                entidad.getIdTramoViaje()+"#"+entidad.getIdServicio()+"#";
+                entidad.getIdTramoViaje()+"#"+entidad.getIdServicio();
+
         TaskCallWS ws=new TaskCallWS();
         ws.Parametros("setHojaruta",getString(R.string.key_method_ws_insert_viaje),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
         ws.execute();
@@ -252,11 +274,14 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
     private void ModificarViaje(ViajeModel entidad){
 
         String ParamNombres, ParamValores;
-        ParamNombres="usuario#clave#Viaje#Terminal#Tram_id#TipoServ_id#FechaHoraSalida";
+        ParamNombres="usuario#clave#Viaje#Terminal#Tram_id#TipoServ_id#FechaHoraSalida#unidad";
         ParamValores= entidad.getNomUsuario()+"#"+entidad.getClaveUsuario()+"#"+
                 String.valueOf(entidad.getIdViaje()) +"#"+ entidad.getNomTerminal()+"#"+
                 entidad.getIdTramoViaje()+"#"+entidad.getIdServicio()+"#"+
-                Functions.StringFormatWsDate(entidad.getFechaViaje()) + " " + entidad.getHoraViaje();
+                Functions.StringFormatWsDate(entidad.getFechaViaje()) + " " + entidad.getHoraViaje() +"#"+
+                oUnidadModel.getNroUnidad();
+
+
         TaskCallWS ws=new TaskCallWS();
         ws.Parametros("setModificarHR",getString(R.string.key_method_ws_update_viaje),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
         ws.execute();
@@ -270,6 +295,63 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
         TaskCallWS ws=new TaskCallWS();
         ws.Parametros("VerHojaRuta",getString(R.string.key_method_ws_search_viaje_id),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
         ws.execute();
+    }
+
+    private void wsListarUnidades(String respuesta){
+
+        if(listUnidades!=null && listUnidades.size()>0){
+            listUnidades.clear();
+        }
+        if(!respuesta.isEmpty()) {
+            String[] Cadena = respuesta.split("#");
+            if(Cadena.length>0){
+                String[] IdUnidad = Cadena[0].split(";");
+                String[] NroUnidad = Cadena[1].split(";");
+                if(IdUnidad.length>0){
+                    for (int i = 0; i <= IdUnidad.length-1; i++) {
+                        if(i<=IdUnidad.length-1 && i<=NroUnidad.length-1){
+                            if((!IdUnidad[i].isEmpty() && !(IdUnidad[i] ==null)) && (!NroUnidad[i].isEmpty() && !(NroUnidad[i] ==null)))
+                            {
+                                UnidadModel entidad=new UnidadModel();
+                                entidad.setIdUnidad(Integer.parseInt(IdUnidad[i]));
+                                entidad.setNroUnidad(NroUnidad[i].toUpperCase());
+                                listUnidades.add(entidad);
+                            }
+                        }
+                    }
+
+                    sBusProgramminTravel.setAdapter(null);
+                    ArrayAdapter<UnidadModel> UnidadesAdapter=new ArrayAdapter<UnidadModel>(ProgrammingTravelActivity.this,
+                            android.R.layout.simple_spinner_dropdown_item, listUnidades);
+                    sBusProgramminTravel.setAdapter(UnidadesAdapter);
+
+                    sBusProgramminTravel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            oUnidadModel= (UnidadModel) parent.getItemAtPosition(position);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                }
+                else
+                {
+                    Toast.makeText(getBaseContext(), R.string.msg_Error_No_Unidades, Toast.LENGTH_LONG).show();
+                }
+
+            }
+            else
+            {
+                Toast.makeText(getBaseContext(), R.string.msg_Error_No_Unidades, Toast.LENGTH_LONG).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(getBaseContext(), R.string.msg_Error_No_Unidades, Toast.LENGTH_LONG).show();
+        }
     }
 
     private void wsListarTipoServicios(String respuesta){
@@ -453,6 +535,7 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
                                 oViajeModel.setTramoViaje(Tramo[i]);
                                 oViajeModel.setNomTerminal(nomTerminal);
                                 oViajeModel.setNomServicio(Servicio[i]);
+                                oViajeModel.setNumBus(nroUnidad);
                                 oViajeModel.setHoraViaje(HoraViaje[i]);
                             }
                         }
@@ -472,6 +555,12 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
                         for (int i = 0; i <= sServicioProgramminTravel.getCount()-1; i++){
                             if(((TipoServicioModel)sServicioProgramminTravel.getItemAtPosition(i)).getNomServicio().equals(oViajeModel.getNomServicio())){
                                 sServicioProgramminTravel.setSelection(i);
+                            }
+                        }
+
+                        for (int i = 0; i <= sBusProgramminTravel.getCount()-1; i++){
+                            if(((UnidadModel)sBusProgramminTravel.getItemAtPosition(i)).getNroUnidad().equals(oViajeModel.getNumBus())){
+                                sBusProgramminTravel.setSelection(i);
                             }
                         }
 
@@ -499,7 +588,9 @@ public class ProgrammingTravelActivity extends AppCompatActivity implements View
 
 
     private void RespuestaWS(String Respuesta,String KeyMetodo){
-        if(KeyMetodo==getString(R.string.key_method_ws_list_services)){
+        if(KeyMetodo==getString(R.string.key_method_ws_list_buses)){
+            wsListarUnidades(Respuesta);
+        }else if(KeyMetodo==getString(R.string.key_method_ws_list_services)){
             wsListarTipoServicios(Respuesta);
         }else if(KeyMetodo==getString(R.string.key_method_ws_search_list_tramos)){
             wsBuscarTramos(Respuesta);

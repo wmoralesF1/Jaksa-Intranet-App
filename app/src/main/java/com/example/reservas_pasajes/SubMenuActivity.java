@@ -79,7 +79,9 @@ public class SubMenuActivity extends AppCompatActivity {
         listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
                 "USUARIOS","","USUARIOS",15,
                 4));
-
+        listaSubMenu.add(new MenuModel(getResources().getDrawable(R.drawable.ic_sale),
+                "INSPECCION de BUSES","","INSPECCION_BUSES",16,
+                2));
 
 
     }

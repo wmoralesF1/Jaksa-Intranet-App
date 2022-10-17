@@ -14,6 +14,12 @@
         android:theme="@style/Theme.Reservas_pasajes"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".InspectionBusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchInspectionBusActivity"
+            android:exported="false" />
+        <activity
             android:name=".FilterUserActivity"
             android:exported="false" />
         <activity

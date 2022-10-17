@@ -14,10 +14,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.reservas_pasajes.Adaptadores.AdaptadorListaProduccionBuses;
 import com.example.reservas_pasajes.Adaptadores.AdaptadorListaProgramacionViaje;
 import com.example.reservas_pasajes.helper.Functions;
 import com.example.reservas_pasajes.helper.SessionManager;
@@ -36,11 +39,18 @@ public class SearchProductionBusActivity extends AppCompatActivity implements Vi
     EditText etFechaViajeSearchProductionBus;
     Spinner spTerminalSearchProductionBus;
     Button btnBuscarViajesSearchProductionBus;
+    Button btnBuscarViajesViewProductionBus;
     ListView lvListaViajeSearchProductionBus;
+    ListView lvListaViajeViewProductionBus;
+    HorizontalScrollView hsListViewProductionBus;
+    LinearLayout llListViewProgrammingTravel;
     String FechaViaje;
     String Terminal;
     AdaptadorListaProgramacionViaje adaptador;
+    AdaptadorListaProduccionBuses adaptadorListaProduccionBuses;
     ArrayList<ViajeModel> listaViajes=new ArrayList<>();
+    ArrayList<ViajeModel> listaProduccionBus=new ArrayList<>();
+
     String TAG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +60,11 @@ public class SearchProductionBusActivity extends AppCompatActivity implements Vi
         etFechaViajeSearchProductionBus=findViewById(R.id.etFechaViajeSearchProductionBus);
         spTerminalSearchProductionBus=findViewById(R.id.spTerminalSearchProductionBus);
         btnBuscarViajesSearchProductionBus=findViewById(R.id.btnBuscarViajesSearchProductionBus);
+        btnBuscarViajesViewProductionBus=findViewById(R.id.btnBuscarViajesViewProductionBus);
+        hsListViewProductionBus=findViewById(R.id.hsListViewProductionBus);
+        llListViewProgrammingTravel=findViewById(R.id.llListViewProgrammingTravel);
         lvListaViajeSearchProductionBus=findViewById(R.id.lvListaViajeSearchProductionBus);
+        lvListaViajeViewProductionBus=findViewById(R.id.lvListaViajeViewProductionBus);
 
         etFechaViajeSearchProductionBus.setText(Functions.FechaHoy());
         final int year=Functions.NumeroAñoFechaHoy();
@@ -90,18 +104,25 @@ public class SearchProductionBusActivity extends AppCompatActivity implements Vi
             }
         });
         btnBuscarViajesSearchProductionBus.setOnClickListener(this);
+        btnBuscarViajesViewProductionBus.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId()==btnBuscarViajesSearchProductionBus.getId()){
-            FechaViaje=btnBuscarViajesSearchProductionBus.getText().toString();
+            FechaViaje=etFechaViajeSearchProductionBus.getText().toString();
             BuscarViajes();
+        }else if(v.getId()==btnBuscarViajesViewProductionBus.getId()){
+            FechaViaje=etFechaViajeSearchProductionBus.getText().toString();
+            BuscarProduccionViajes();
         }
 
     }
 
     private void BuscarViajes(){
+        hsListViewProductionBus.setVisibility(View.GONE);
+        llListViewProgrammingTravel.setVisibility(View.VISIBLE);
         adaptador=new AdaptadorListaProgramacionViaje(this, new ArrayList<ViajeModel>());
         lvListaViajeSearchProductionBus.setAdapter(adaptador);
         String ParamNombres, ParamValores;
@@ -109,6 +130,19 @@ public class SearchProductionBusActivity extends AppCompatActivity implements Vi
         ParamValores= Functions.StringFormatWsDate(FechaViaje)+"#"+Terminal;
         TaskCallWS ws=new TaskCallWS();
         ws.Parametros("PRGViajes",getString(R.string.key_method_ws_search_list_viaje),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
+        ws.execute();
+    }
+
+    private void BuscarProduccionViajes(){
+        hsListViewProductionBus.setVisibility(View.VISIBLE);
+        llListViewProgrammingTravel.setVisibility(View.GONE);
+        adaptadorListaProduccionBuses=new AdaptadorListaProduccionBuses(this, new ArrayList<ViajeModel>());
+        lvListaViajeViewProductionBus.setAdapter(adaptadorListaProduccionBuses);
+        String ParamNombres, ParamValores;
+        ParamNombres="Fecha#Terminal";
+        ParamValores= Functions.StringFormatWsDate(FechaViaje)+"#"+Terminal;
+        TaskCallWS ws=new TaskCallWS();
+        ws.Parametros("ProdViajes",getString(R.string.key_method_ws_view_production_bus),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
         ws.execute();
     }
 
@@ -172,6 +206,112 @@ public class SearchProductionBusActivity extends AppCompatActivity implements Vi
         }
     }
 
+    private void wsBuscarProduccionBus(String respuesta){
+        listaProduccionBus.clear();
+        if(!respuesta.isEmpty()) {
+            String[] Cadena = respuesta.split("#");
+            if(Cadena.length>0){
+                String[] ArrayViaje_id = Cadena[0].split(";");
+                String[] ArrayBuses = Cadena[1].split(";");
+                String[] ArrayHoraViajes = Cadena[2].split(";");
+                String[] ArrayCodServicio = Cadena[4].split(";");
+                String[] ArrayAsientos = Cadena[5].split(";");
+                String[] ArrayTerminalLima = Cadena[11].split(";");
+                String[] ArrayTerminalChincha = Cadena[12].split(";");
+                String[] ArrayTerminalPisco = Cadena[13].split(";");
+                String[] ArrayTerminalIca = Cadena[14].split(";");
+
+
+                if(ArrayViaje_id.length>0){
+                    for (int i = 0; i <= ArrayViaje_id.length-1; i++) {
+                        if(i<=ArrayViaje_id.length-1){
+                            ViajeModel oViajeModel=new ViajeModel();
+
+                            if(i<=ArrayBuses.length-1){
+                                oViajeModel.setIdViaje(Integer.parseInt(ArrayViaje_id[i]));
+                            }else{
+                                oViajeModel.setIdViaje(0);
+                            }
+
+                            if(i<=ArrayBuses.length-1){
+                                oViajeModel.setNumBus(ArrayBuses[i]);
+                            }else{
+                                oViajeModel.setNumBus("");
+                            }
+
+                            if(i<=ArrayHoraViajes.length-1){
+                                oViajeModel.setHoraViaje(ArrayHoraViajes[i]);
+                            }else{
+                                oViajeModel.setHoraViaje("");
+                            }
+
+                            if(i<=ArrayAsientos.length-1){
+                                oViajeModel.setNumAsientos(Integer.parseInt(ArrayAsientos[i]));
+                            }else{
+                                oViajeModel.setNumAsientos(0);
+                            }
+
+                            if(i<=ArrayCodServicio.length-1){
+                                oViajeModel.setIdServicio(ArrayCodServicio[i]);
+                            }else{
+                                oViajeModel.setIdServicio("");
+                            }
+
+                            if(i<=ArrayTerminalLima.length-1){
+                                oViajeModel.setPaxTerminalLima(ArrayTerminalLima[i]);
+                            }else{
+                                oViajeModel.setPaxTerminalLima("");
+                            }
+
+                            if(i<=ArrayTerminalChincha.length-1){
+                                oViajeModel.setPaxTerminalChincha(ArrayTerminalChincha[i]);
+                            }else{
+                                oViajeModel.setPaxTerminalChincha("");
+                            }
+
+                            if(i<=ArrayTerminalPisco.length-1){
+                                oViajeModel.setPaxTerminalPisco(ArrayTerminalPisco[i]);
+                            }else{
+                                oViajeModel.setPaxTerminalPisco("");
+                            }
+
+                            if(i<=ArrayTerminalIca.length-1){
+                                oViajeModel.setPaxTerminalIca(ArrayTerminalIca[i]);
+                            }else{
+                                oViajeModel.setPaxTerminalIca("");
+                            }
+                            listaProduccionBus.add(oViajeModel);
+                        }
+                    }
+                    Log.i(TAG, "Error887 : " + listaProduccionBus.size());
+                    adaptadorListaProduccionBuses=new AdaptadorListaProduccionBuses(this, listaProduccionBus);
+                    lvListaViajeViewProductionBus.setAdapter(adaptadorListaProduccionBuses);
+                    /*lvListaViajeViewProductionBus.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
+                            ViajeModel oViajeModel = (ViajeModel) adapterView.getItemAtPosition(index);
+                            Continuar(oViajeModel);
+                        }
+                    });*/
+                }
+                else
+                {
+                    Toast.makeText(getBaseContext(), R.string.msg_Error_No_Produccion_Buses, Toast.LENGTH_LONG).show();
+                }
+
+            }
+            else
+            {
+                Toast.makeText(getBaseContext(), R.string.msg_Error_No_Produccion_Buses, Toast.LENGTH_LONG).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(getBaseContext(), R.string.msg_Error_No_Produccion_Buses, Toast.LENGTH_LONG).show();
+        }
+    }
+
+
     private void Continuar(ViajeModel entidad){
         Intent i;
         i = new Intent(this, ProductionBusActivity.class);
@@ -184,6 +324,8 @@ public class SearchProductionBusActivity extends AppCompatActivity implements Vi
     private void RespuestaWS(String Respuesta,String KeyMetodo){
         if(KeyMetodo.equals(getString(R.string.key_method_ws_search_list_viaje))){
             wsBuscarViajes(Respuesta);
+        }else if(KeyMetodo.equals(getString(R.string.key_method_ws_view_production_bus))){
+            wsBuscarProduccionBus(Respuesta);
         }
 
     }

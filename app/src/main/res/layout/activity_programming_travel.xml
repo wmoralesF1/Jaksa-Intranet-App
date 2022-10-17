@@ -117,6 +117,23 @@
                     android:layout_weight="70"
                     android:layout_marginBottom="10dp"></Spinner>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:text="Unidad : "
+                    android:textSize="15sp"></TextView>
+                <Spinner
+                    android:id="@+id/sBusProgramminTravel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:layout_marginBottom="10dp"></Spinner>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

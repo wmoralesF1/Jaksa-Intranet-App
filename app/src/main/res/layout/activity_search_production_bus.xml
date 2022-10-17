@@ -54,58 +54,157 @@
             android:textSize="15sp"
             ></Spinner>
     </LinearLayout>
-    <Button
-        android:id="@+id/btnBuscarViajesSearchProductionBus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Buscar"
-        android:textSize="12sp"
-        ></Button>
     <LinearLayout
         android:orientation="horizontal"
-        android:paddingVertical="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
+        <Button
+            android:id="@+id/btnBuscarViajesSearchProductionBus"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="Id Viaje"
-            android:textStyle="bold"
-            android:textSize="15sp"></TextView>
-        <TextView
+            android:layout_weight="45"
+            android:text="Ver Salidas"
+            android:textSize="12sp"
+            android:layout_marginRight="5dp"
+            ></Button>
+        <Button
+            android:id="@+id/btnBuscarViajesViewProductionBus"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="25"
-            android:text="Hora Viaje"
-            android:textStyle="bold"
-            android:textSize="15sp"></TextView>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="15"
-            android:text="N° Bus"
-            android:textStyle="bold"
-            android:textSize="15sp"></TextView>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="Tramo"
-            android:textStyle="bold"
-            android:textSize="15sp"></TextView>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="Servicio"
-            android:textStyle="bold"
-            android:textSize="15sp"></TextView>
-
+            android:layout_weight="45"
+            android:text="Ver Produccion"
+            android:textSize="12sp"
+            android:layout_marginLeft="5dp"
+            ></Button>
     </LinearLayout>
-    <ListView
-        android:id="@+id/lvListaViajeSearchProductionBus"
-        android:listSelector="#FFFF00"
+    <HorizontalScrollView
+        android:id="@+id/hsListViewProductionBus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:paddingVertical="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="N° Bus"
+                    android:textStyle="bold"
+                    android:textSize="15sp"></TextView>
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Asiento"
+                    android:textStyle="bold"
+                    android:textSize="15sp"></TextView>
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hora Viaje"
+                    android:textStyle="bold"
+                    android:textSize="15sp"></TextView>
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Servicio"
+                    android:textStyle="bold"
+                    android:textSize="15sp"></TextView>
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="Lima"
+                    android:textStyle="bold"
+                    android:textSize="15sp"></TextView>
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="Chincha"
+                    android:textStyle="bold"
+                    android:textSize="15sp"></TextView>
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pisco"
+                    android:textStyle="bold"
+                    android:textSize="15sp"></TextView>
+                <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="Ica"
+                    android:textStyle="bold"
+                    android:textSize="15sp"></TextView>
+
+            </LinearLayout>
+            <ListView
+                android:id="@+id/lvListaViajeViewProductionBus"
+                android:listSelector="#FFFF00"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </LinearLayout>
+    </HorizontalScrollView>
+    <LinearLayout
+        android:id="@+id/llListViewProgrammingTravel"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:paddingVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:text="Id Viaje"
+                android:textStyle="bold"
+                android:textSize="15sp"></TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="25"
+                android:text="Hora Viaje"
+                android:textStyle="bold"
+                android:textSize="15sp"></TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="N° Bus"
+                android:textStyle="bold"
+                android:textSize="15sp"></TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:text="Tramo"
+                android:textStyle="bold"
+                android:textSize="15sp"></TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:text="Servicio"
+                android:textStyle="bold"
+                android:textSize="15sp"></TextView>
+
+        </LinearLayout>
+        <ListView
+            android:id="@+id/lvListaViajeSearchProductionBus"
+            android:listSelector="#FFFF00"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </LinearLayout>
+
+
 </LinearLayout>

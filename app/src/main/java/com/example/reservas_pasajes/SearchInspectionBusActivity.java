@@ -1,12 +1,9 @@
 package com.example.reservas_pasajes;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.reservas_pasajes.Adaptadores.AdaptadorListaProgramacionViaje;
 import com.example.reservas_pasajes.helper.Functions;
+import com.example.reservas_pasajes.helper.Lista;
 import com.example.reservas_pasajes.helper.SessionManager;
 import com.example.reservas_pasajes.models.TerminalModel;
 import com.example.reservas_pasajes.models.ViajeModel;
@@ -34,76 +32,55 @@ import org.ksoap2.transport.HttpTransportSE;
 
 import java.util.ArrayList;
 
-public class OpenTravelActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText etFechaViajeOpenTravel;
-    Spinner spTerminalOpenTravel;
-    Button btnBuscarViajesOpenTravel;
-    Button btnNuevoViajeOpenTravel;
-    Button btnEditarViajeOpenTravel;
-    ListView lvListaViajeOpenTravel;
-    AdaptadorListaProgramacionViaje adaptador;
+public class SearchInspectionBusActivity extends AppCompatActivity  implements View.OnClickListener{
+    EditText etFechaViajeSearchInspectionBus;
+    Spinner spSentidoSearchInspectionBus;
+    Button btnBuscarViajesSearchInspectionBus;
+    ListView lvListaViajeSearchInspectionBus;
     String FechaViaje;
-    String Terminal;
+    String Sentido;
+    AdaptadorListaProgramacionViaje adaptador;
     ArrayList<ViajeModel> listaViajes=new ArrayList<>();
-    ViajeModel oViajeModel=new ViajeModel();
     String TAG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_open_travel);
-        TAG="Lista Programacion Viaje";
-        etFechaViajeOpenTravel=findViewById(R.id.etFechaViajeOpenTravel);
-        spTerminalOpenTravel=findViewById(R.id.spTerminalOpenTravel);
-        btnBuscarViajesOpenTravel=findViewById(R.id.btnBuscarViajesOpenTravel);
-        btnNuevoViajeOpenTravel=findViewById(R.id.btnNuevoViajeOpenTravel);
-        btnEditarViajeOpenTravel=findViewById(R.id.btnEditarViajeOpenTravel);
-        lvListaViajeOpenTravel=findViewById(R.id.lvListaViajeOpenTravel);
+        setContentView(R.layout.activity_search_inspection_bus);
+        TAG="Busqueda de Producción Buses";
+        etFechaViajeSearchInspectionBus=findViewById(R.id.etFechaViajeSearchInspectionBus);
+        spSentidoSearchInspectionBus=findViewById(R.id.spSentidoSearchInspectionBus);
+        btnBuscarViajesSearchInspectionBus=findViewById(R.id.btnBuscarViajesSearchInspectionBus);
+        lvListaViajeSearchInspectionBus=findViewById(R.id.lvListaViajeSearchInspectionBus);
 
-
-
-        etFechaViajeOpenTravel.setText(Functions.FechaHoy());
+        etFechaViajeSearchInspectionBus.setText(Functions.FechaHoy());
         final int year=Functions.NumeroAñoFechaHoy();
         final int month=Functions.NumeroMesFechaHoy();
         final int day=Functions.NumeroDiaFechaHoy();
-        etFechaViajeOpenTravel.setOnClickListener(new View.OnClickListener() {
+        etFechaViajeSearchInspectionBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DatePickerDialog datePickerDialog=new DatePickerDialog(OpenTravelActivity.this,
+                DatePickerDialog datePickerDialog=new DatePickerDialog(SearchInspectionBusActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int day) {
-                                etFechaViajeOpenTravel.setText(Functions.Fecha(day,month+1,year));
+                                etFechaViajeSearchInspectionBus.setText(Functions.Fecha(day,month+1,year));
                             }
                         },year,month,day);
                 datePickerDialog.show();
             }
         });
-        lvListaViajeOpenTravel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
-                oViajeModel = (ViajeModel) adapterView.getItemAtPosition(index);
-                for (int i = 0; i <= lvListaViajeOpenTravel.getChildCount()-1; i++) {
-                    if(index == i ){
-                        //lvListaViajeOpenTravel.getChildAt(index).setBackgroundColor(Color.YELLOW);
-                        btnEditarViajeOpenTravel.setEnabled(true);
-                    }else{
-                        lvListaViajeOpenTravel.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
-                    }
-                }
-            }
-        });
+        FechaViaje=etFechaViajeSearchInspectionBus.getText().toString();
 
-        FechaViaje=etFechaViajeOpenTravel.getText().toString();
-        ArrayAdapter<TerminalModel> terminalesAdapter=new ArrayAdapter<TerminalModel>(OpenTravelActivity.this,
-                android.R.layout.simple_spinner_dropdown_item, SessionManager.getListaTerminales());
+        ArrayAdapter<String> sentidoRutaAdapter=new ArrayAdapter<String>(SearchInspectionBusActivity.this,
+                android.R.layout.simple_spinner_dropdown_item, Lista.ListaSentidosRuta());
 
-        spTerminalOpenTravel.setAdapter(terminalesAdapter);
-        spTerminalOpenTravel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spSentidoSearchInspectionBus.setAdapter(sentidoRutaAdapter);
+        spSentidoSearchInspectionBus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                TerminalModel entidad= (TerminalModel) parent.getItemAtPosition(position);
-                Terminal=entidad.getNomTerminal();
+                //TerminalModel entidad= (TerminalModel) parent.getItemAtPosition(position);
+                Sentido=parent.getItemAtPosition(position).toString();
                 BuscarViajes();
             }
 
@@ -112,23 +89,28 @@ public class OpenTravelActivity extends AppCompatActivity implements View.OnClic
 
             }
         });
+        btnBuscarViajesSearchInspectionBus.setOnClickListener(this);
+    }
 
-        btnBuscarViajesOpenTravel.setOnClickListener(this);
-        btnNuevoViajeOpenTravel.setOnClickListener(this);
-        btnEditarViajeOpenTravel.setOnClickListener(this);
-
-
-
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==btnBuscarViajesSearchInspectionBus.getId()){
+            FechaViaje=etFechaViajeSearchInspectionBus.getText().toString();
+            /*Intent i;
+            i = new Intent(this, InspectionBusActivity.class);
+            startActivity(i);*/
+            BuscarViajes();
+        }
     }
 
     private void BuscarViajes(){
         adaptador=new AdaptadorListaProgramacionViaje(this, new ArrayList<ViajeModel>());
-        lvListaViajeOpenTravel.setAdapter(adaptador);
+        lvListaViajeSearchInspectionBus.setAdapter(adaptador);
         String ParamNombres, ParamValores;
-        ParamNombres="Fecha#Terminal";
-        ParamValores= Functions.StringFormatWsDate(FechaViaje)+"#"+Terminal;
+        ParamNombres="Fecha#Sentido";
+        ParamValores= Functions.StringFormatWsDate(FechaViaje)+"#"+Sentido;
         TaskCallWS ws=new TaskCallWS();
-        ws.Parametros("PRGViajes",getString(R.string.key_method_ws_search_list_viaje),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
+        ws.Parametros("ViajesInspeccion",getString(R.string.key_method_ws_search_viaje_inspection),getString(R.string.url_web_service_namespace),getString(R.string.url_web_service),ParamNombres,ParamValores);
         ws.execute();
     }
 
@@ -166,22 +148,15 @@ public class OpenTravelActivity extends AppCompatActivity implements View.OnClic
                         }
                     }
                     adaptador=new AdaptadorListaProgramacionViaje(this, listaViajes);
-                    lvListaViajeOpenTravel.setAdapter(adaptador);
-                    lvListaViajeOpenTravel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    lvListaViajeSearchInspectionBus.setAdapter(adaptador);
+                    lvListaViajeSearchInspectionBus.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
-                            oViajeModel = (ViajeModel) adapterView.getItemAtPosition(index);
-                            if(oViajeModel!=null){
-                                btnEditarViajeOpenTravel.setEnabled(true);
-                            }else{
-                                btnEditarViajeOpenTravel.setEnabled(false);
-                            }
+                            ViajeModel oViajeModel = (ViajeModel) adapterView.getItemAtPosition(index);
+                            Continuar(oViajeModel);
                         }
                     });
-
-
-
-               }
+                }
                 else
                 {
                     Toast.makeText(getBaseContext(), R.string.msg_Error_No_Viajes, Toast.LENGTH_LONG).show();
@@ -199,37 +174,21 @@ public class OpenTravelActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    private void Continuar(ViajeModel entidad){
+        Intent i;
+        i = new Intent(this, InspectionBusActivity.class);
+        i.putExtra("idViaje", entidad.getIdViaje());
+        /*i.putExtra("numBus", entidad.getNumBus());
+        i.putExtra("horaPartida", entidad.getHoraViaje());*/
+        startActivity(i);
+    }
+
     private void RespuestaWS(String Respuesta,String KeyMetodo){
-        if(KeyMetodo.equals(getString(R.string.key_method_ws_search_list_viaje))){
+        if(KeyMetodo.equals(getString(R.string.key_method_ws_search_viaje_inspection))){
             wsBuscarViajes(Respuesta);
         }
 
     }
-
-    @Override
-    public void onClick(View v) {
-        if(v.getId()==btnBuscarViajesOpenTravel.getId()){
-            FechaViaje=etFechaViajeOpenTravel.getText().toString();
-            BuscarViajes();
-        }else if(v.getId()==btnNuevoViajeOpenTravel.getId()){
-            Intent i;
-            i = new Intent(this, ProgrammingTravelActivity.class);
-            i.putExtra("idViaje", "0");
-            i.putExtra("nomTerminal", "");
-            i.putExtra("nroUnidad", "");
-
-            startActivity(i);
-        }else if(v.getId()==btnEditarViajeOpenTravel.getId()){
-            Intent i;
-            i = new Intent(this, ProgrammingTravelActivity.class);
-            i.putExtra("idViaje", String.valueOf(oViajeModel.getIdViaje()));
-            i.putExtra("nomTerminal", ((TerminalModel)spTerminalOpenTravel.getSelectedItem()).getNomTerminal());
-            i.putExtra("nroUnidad", String.valueOf(oViajeModel.getNumBus()));
-            startActivity(i);
-        }
-    }
-
-
 
     public class TaskCallWS extends AsyncTask<Void, Integer, String> {
 

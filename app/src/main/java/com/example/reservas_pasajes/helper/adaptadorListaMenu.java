@@ -22,6 +22,7 @@ import com.example.reservas_pasajes.OpenTravelActivity;
 import com.example.reservas_pasajes.ProgrammingTravelActivity;
 import com.example.reservas_pasajes.R;
 import com.example.reservas_pasajes.SearchEditTicket;
+import com.example.reservas_pasajes.SearchInspectionBusActivity;
 import com.example.reservas_pasajes.SearchProductionBusActivity;
 import com.example.reservas_pasajes.SearchRoutesActivity;
 import com.example.reservas_pasajes.models.MenuModel;
@@ -112,6 +113,10 @@ public class adaptadorListaMenu extends BaseAdapter {
         }else if(item.getClave()=="USUARIOS"){
             Intent i;
             i = new Intent(context, FilterUserActivity.class);
+            context.startActivity(i);
+        }else if(item.getClave()=="INSPECCION_BUSES"){
+            Intent i;
+            i = new Intent(context, SearchInspectionBusActivity.class);
             context.startActivity(i);
         }
 

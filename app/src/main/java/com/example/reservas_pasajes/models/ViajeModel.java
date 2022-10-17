@@ -26,7 +26,13 @@ public class ViajeModel {
     private String fechaReservaFormat;
     private String horaReserva;
     private double precioAsiento;
+    private int idBus;
     private String numBus;
+    private int numAsientos;
+    private String paxTerminalLima;
+    private String paxTerminalChincha;
+    private String paxTerminalPisco;
+    private String paxTerminalIca;
     private ArrayList<PasajeroModel> listaPasajero;
     private RutaModel rutaViaje;
     private ItinerarioModel itinerarioViaje;
@@ -115,15 +121,16 @@ public class ViajeModel {
         return tramoViaje;
     }
 
-    public void setTramoViaje(String tramaViaje) {
-        this.tramoViaje = tramaViaje;
+    public void setTramoViaje(String tramoViaje) {
+        this.tramoViaje = tramoViaje;
     }
+
     public String getIdTramoViaje() {
         return idTramoViaje;
     }
 
-    public void setIdTramoViaje(String idTramaViaje) {
-        this.idTramoViaje = idTramaViaje;
+    public void setIdTramoViaje(String idTramoViaje) {
+        this.idTramoViaje = idTramoViaje;
     }
 
     public String getTipoVenta() {
@@ -156,14 +163,6 @@ public class ViajeModel {
 
     public void setMontoPax(double montoPax) {
         this.montoPax = montoPax;
-    }
-
-    public String getNumBus() {
-        return numBus;
-    }
-
-    public void setNumBus(String numBus) {
-        this.numBus = numBus;
     }
 
     public String getFechaViaje() {
@@ -220,6 +219,62 @@ public class ViajeModel {
 
     public void setPrecioAsiento(double precioAsiento) {
         this.precioAsiento = precioAsiento;
+    }
+
+    public int getIdBus() {
+        return idBus;
+    }
+
+    public void setIdBus(int idBus) {
+        this.idBus = idBus;
+    }
+
+    public String getNumBus() {
+        return numBus;
+    }
+
+    public void setNumBus(String numBus) {
+        this.numBus = numBus;
+    }
+
+    public int getNumAsientos() {
+        return numAsientos;
+    }
+
+    public void setNumAsientos(int numAsientos) {
+        this.numAsientos = numAsientos;
+    }
+
+    public String getPaxTerminalLima() {
+        return paxTerminalLima;
+    }
+
+    public void setPaxTerminalLima(String paxTerminalLima) {
+        this.paxTerminalLima = paxTerminalLima;
+    }
+
+    public String getPaxTerminalChincha() {
+        return paxTerminalChincha;
+    }
+
+    public void setPaxTerminalChincha(String paxTerminalChincha) {
+        this.paxTerminalChincha = paxTerminalChincha;
+    }
+
+    public String getPaxTerminalPisco() {
+        return paxTerminalPisco;
+    }
+
+    public void setPaxTerminalPisco(String paxTerminalPisco) {
+        this.paxTerminalPisco = paxTerminalPisco;
+    }
+
+    public String getPaxTerminalIca() {
+        return paxTerminalIca;
+    }
+
+    public void setPaxTerminalIca(String paxTerminalIca) {
+        this.paxTerminalIca = paxTerminalIca;
     }
 
     public ArrayList<PasajeroModel> getListaPasajero() {

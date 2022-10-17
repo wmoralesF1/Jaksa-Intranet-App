@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvProduccionBusNumBus"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="N° Bus"
+            android:textSize="15sp"></TextView>
+
+        <TextView
+            android:id="@+id/tvProduccionBusNumAsiento"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Asiento"
+            android:textSize="15sp"></TextView>
+
+        <TextView
+            android:id="@+id/tvProduccionBusHoraViaje"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Hora Viaje"
+            android:textSize="15sp"></TextView>
+
+        <TextView
+            android:id="@+id/tvProduccionBusCodServicio"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Servicio"
+            android:textSize="15sp"></TextView>
+
+        <TextView
+            android:id="@+id/tvProduccionBusPaxLima"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Lima"
+            android:textSize="15sp"></TextView>
+
+        <TextView
+            android:id="@+id/tvProduccionBusPaxChincha"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Chincha"
+            android:textSize="15sp"></TextView>
+
+        <TextView
+            android:id="@+id/tvProduccionBusPaxPisco"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Pisco"
+            android:textSize="15sp"></TextView>
+
+        <TextView
+            android:id="@+id/tvProduccionBusPaxIca"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Ica"
+            android:textSize="15sp"></TextView>
+    </LinearLayout>
+</LinearLayout>

@@ -5,6 +5,9 @@ public class ExpReg {
     public static String numeroDocumento="^[A-ZÑa-zñ0-9 ]+$";
     public static String nomUsuario="^[A-ZÑa-zñ0-9 ]+$";
     public static String clave="^[A-ZÑa-zñ0-9.#$/&]+$";
-    public static String nomTerminal="^[A-ZÑa-z-]+$";
+    public static String nomTerminal="^[A-ZÑa-z- ]+$";
+    public static String monto="^[0-9.,]+$";
+    public static String soloNumero="^[0-9 ]+$";
+
 
 }

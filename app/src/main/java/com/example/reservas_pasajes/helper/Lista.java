@@ -20,6 +20,13 @@ public class Lista {
         return NivelesUsuarios;
     }
 
+    public static ArrayList<String> ListaSentidosRuta(){
+        ArrayList<String> SentidosRuta = new ArrayList<String>();
+        SentidosRuta.add("Norte-Sur");
+        SentidosRuta.add("Sur-Norte");
+        return SentidosRuta;
+    }
+
 
 
 }
