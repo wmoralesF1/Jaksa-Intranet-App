@@ -214,6 +214,7 @@ public class SearchProductionBusActivity extends AppCompatActivity implements Vi
                 String[] ArrayViaje_id = Cadena[0].split(";");
                 String[] ArrayBuses = Cadena[1].split(";");
                 String[] ArrayHoraViajes = Cadena[2].split(";");
+                String[] ArrayTramo = Cadena[3].split(";");
                 String[] ArrayCodServicio = Cadena[4].split(";");
                 String[] ArrayAsientos = Cadena[5].split(";");
                 String[] ArrayTerminalLima = Cadena[11].split(";");
@@ -244,7 +245,11 @@ public class SearchProductionBusActivity extends AppCompatActivity implements Vi
                             }else{
                                 oViajeModel.setHoraViaje("");
                             }
-
+                            if(i<=ArrayTramo.length-1){
+                                oViajeModel.setTramoViaje(ArrayTramo[i]);
+                            }else{
+                                oViajeModel.setTramoViaje("");
+                            }
                             if(i<=ArrayAsientos.length-1){
                                 oViajeModel.setNumAsientos(Integer.parseInt(ArrayAsientos[i]));
                             }else{

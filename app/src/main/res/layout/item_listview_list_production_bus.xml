@@ -14,28 +14,24 @@
             android:layout_height="wrap_content"
             android:text="N° Bus"
             android:textSize="15sp"></TextView>
-
         <TextView
-            android:id="@+id/tvProduccionBusNumAsiento"
-            android:layout_width="80dp"
+            android:id="@+id/tvProduccionBusTramo"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="Asiento"
+            android:text="Tramo"
             android:textSize="15sp"></TextView>
-
         <TextView
             android:id="@+id/tvProduccionBusHoraViaje"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="Hora Viaje"
             android:textSize="15sp"></TextView>
-
         <TextView
-            android:id="@+id/tvProduccionBusCodServicio"
+            android:id="@+id/tvProduccionBusNumAsiento"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="Servicio"
+            android:text="Asiento"
             android:textSize="15sp"></TextView>
-
         <TextView
             android:id="@+id/tvProduccionBusPaxLima"
             android:layout_width="170dp"

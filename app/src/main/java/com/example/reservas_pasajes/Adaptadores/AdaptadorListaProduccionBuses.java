@@ -48,7 +48,7 @@ public class AdaptadorListaProduccionBuses   extends BaseAdapter {
         TextView tvProduccionBusNumBus = (TextView) convertView.findViewById(R.id.tvProduccionBusNumBus);
         TextView tvProduccionBusNumAsiento = (TextView) convertView.findViewById(R.id.tvProduccionBusNumAsiento);
         TextView tvProduccionBusHoraViaje = (TextView) convertView.findViewById(R.id.tvProduccionBusHoraViaje);
-        TextView tvProduccionBusCodServicio = (TextView) convertView.findViewById(R.id.tvProduccionBusCodServicio);
+        TextView tvProduccionBusTramo = (TextView) convertView.findViewById(R.id.tvProduccionBusTramo);
         TextView tvProduccionBusPaxLima = (TextView) convertView.findViewById(R.id.tvProduccionBusPaxLima);
         TextView tvProduccionBusPaxChincha = (TextView) convertView.findViewById(R.id.tvProduccionBusPaxChincha);
         TextView tvProduccionBusPaxPisco = (TextView) convertView.findViewById(R.id.tvProduccionBusPaxPisco);
@@ -59,7 +59,7 @@ public class AdaptadorListaProduccionBuses   extends BaseAdapter {
         tvProduccionBusNumBus.setText(entidad.getNumBus());
         tvProduccionBusNumAsiento.setText(String.valueOf(entidad.getNumAsientos()));
         tvProduccionBusHoraViaje.setText(entidad.getHoraViaje());
-        tvProduccionBusCodServicio.setText(entidad.getIdServicio());
+        tvProduccionBusTramo.setText(entidad.getTramoViaje());
         tvProduccionBusPaxLima.setText(entidad.getPaxTerminalLima());
         tvProduccionBusPaxChincha.setText(entidad.getPaxTerminalChincha());
         tvProduccionBusPaxPisco.setText(entidad.getPaxTerminalPisco());

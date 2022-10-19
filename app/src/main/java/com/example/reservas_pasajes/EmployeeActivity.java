@@ -155,7 +155,7 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void ListarTiposDocumentos(){
-        if(SessionManager.getListadoTiposDocumentos().size()>0){
+        if(SessionManager.getListadoTiposDocumentos()!=null && SessionManager.getListadoTiposDocumentos().size()>0){
             ArrayAdapter<TipoDocumentoModel> tipoDocumentosAdapter=new ArrayAdapter<TipoDocumentoModel>(EmployeeActivity.this,
                     android.R.layout.simple_spinner_dropdown_item, SessionManager.getListadoTiposDocumentos());
             spTipoDocumentoEmployee.setAdapter(tipoDocumentosAdapter);
@@ -197,15 +197,15 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
                             });
                         } else {
                         }
-                    }else{
-                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                     }else{
+                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 1.", Toast.LENGTH_LONG).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseListGeneric<TipoDocumentoModel>> call, Throwable t) {
                     //hideProgress();
-                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 2.", Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -215,7 +215,7 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void ListarTiposServicios(){
-        if(SessionManager.getListadoTipoServicios().size()>0){
+        if(SessionManager.getListadoTipoServicios()!=null && SessionManager.getListadoTipoServicios().size()>0){
             ArrayAdapter<TipoServicioModel> tiposerviciosAdapter=new ArrayAdapter<TipoServicioModel>(EmployeeActivity.this,
                     android.R.layout.simple_spinner_dropdown_item,SessionManager.getListadoTipoServicios());
             spTipoServicioEmployee.setAdapter(tiposerviciosAdapter);
@@ -261,14 +261,14 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
                         } else {
                         }
                     }else{
-                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 3.", Toast.LENGTH_LONG).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseListGeneric<TipoServicioModel>> call, Throwable t) {
                     //hideProgress();
-                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 4.", Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -277,7 +277,7 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
 
     private void ListarNacionalidades(){
 
-        if(SessionManager.getListadoPaises().size()>0){
+        if(SessionManager.getListadoPaises() !=null && SessionManager.getListadoPaises().size()>0){
             ArrayAdapter<PaisModel> paisesAdapter=new ArrayAdapter<PaisModel>(EmployeeActivity.this,
                     android.R.layout.simple_spinner_dropdown_item,SessionManager.getListadoPaises());
             spNacionalidadEmployee.setAdapter(paisesAdapter);
@@ -319,14 +319,14 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
                         } else {
                         }
                     }else{
-                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 5.", Toast.LENGTH_LONG).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseListGeneric<PaisModel>> call, Throwable t) {
                     //hideProgress();
-                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 6.", Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -334,7 +334,7 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void ListarCargos(){
-        if(SessionManager.getListadoCargos().size()>0){
+        if(SessionManager.getListadoCargos()!=null && SessionManager.getListadoCargos().size()>0){
             ArrayAdapter<CargoModel> cargosAdapter=new ArrayAdapter<CargoModel>(EmployeeActivity.this,
                     android.R.layout.simple_spinner_dropdown_item,SessionManager.getListadoCargos());
             spCargoEmployee.setAdapter(cargosAdapter);
@@ -376,14 +376,14 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
                         } else {
                         }
                     }else{
-                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 7.", Toast.LENGTH_LONG).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseListGeneric<CargoModel>> call, Throwable t) {
                     //hideProgress();
-                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 8.", Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -391,7 +391,7 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void ListarGruposEmpresariales(){
-        if(SessionManager.getListadoGruposEmpresariales().size()>0){
+        if(SessionManager.getListadoGruposEmpresariales()!=null && SessionManager.getListadoGruposEmpresariales().size()>0){
             ArrayAdapter<GrupoEmpresarialModel> grupoEmpresarialAdapter=new ArrayAdapter<GrupoEmpresarialModel>(EmployeeActivity.this,
                     android.R.layout.simple_spinner_dropdown_item,SessionManager.getListadoGruposEmpresariales());
             spGrupoEmpresarialEmployee.setAdapter(grupoEmpresarialAdapter);
@@ -436,14 +436,14 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
                         } else {
                         }
                     }else{
-                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 9.", Toast.LENGTH_LONG).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseListGeneric<GrupoEmpresarialModel>> call, Throwable t) {
                     //hideProgress();
-                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 10.", Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -451,7 +451,7 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void ListarLocales(){
-        if(SessionManager.getListadoLocales().size()>0){
+        if(SessionManager.getListadoLocales()!=null && SessionManager.getListadoLocales().size()>0){
             ArrayAdapter<LocalModel> localesAdapter=new ArrayAdapter<LocalModel>(EmployeeActivity.this,
                     android.R.layout.simple_spinner_dropdown_item,SessionManager.getListadoLocales());
             spLocalEmployee.setAdapter(localesAdapter);
@@ -496,14 +496,14 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
                         } else {
                         }
                     }else{
-                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 11.", Toast.LENGTH_LONG).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseListGeneric<LocalModel>> call, Throwable t) {
                     //hideProgress();
-                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 12.", Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -588,14 +588,14 @@ public class EmployeeActivity extends AppCompatActivity implements View.OnClickL
                     } else {
                     }
                 }else{
-                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 13.", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<ResponseGeneric<EmpleadoModel>> call, Throwable t) {
                 //hideProgress();
-                Toast.makeText(getBaseContext(), "Ocurrio en error en el registro.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Ocurrio en error en el registro 14.", Toast.LENGTH_LONG).show();
             }
         });
     }

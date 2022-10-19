@@ -101,9 +101,9 @@
                     android:textStyle="bold"
                     android:textSize="15sp"></TextView>
                 <TextView
-                    android:layout_width="80dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="Asiento"
+                    android:text="Tramo"
                     android:textStyle="bold"
                     android:textSize="15sp"></TextView>
                 <TextView
@@ -112,11 +112,10 @@
                     android:text="Hora Viaje"
                     android:textStyle="bold"
                     android:textSize="15sp"></TextView>
-
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:text="Servicio"
+                    android:text="Asiento"
                     android:textStyle="bold"
                     android:textSize="15sp"></TextView>
                 <TextView
