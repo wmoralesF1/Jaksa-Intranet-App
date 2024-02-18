@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Intranet Jaksa</string>
     <string name="url_api_service">http://www.grupovaldez.pe/ServicesAppIntranet/</string>
-    <string name="url_web_service">http://www.grupovaldez.pe/WSintranet/WSIntranet.asmx</string>
-    <string name="url_web_service_namespace">http://www.grupovaldez.com/</string>
+    <string name="url_web_service">https://www.jaksa.pe/WSintranet/WSIntranet.asmx</string>
+    <string name="url_web_service_namespace">https://www.jaksa.pe/</string>
 
     <!--Mensajes-->
     <string name="msg_Progress_Login">Comprobando Credenciales</string>
